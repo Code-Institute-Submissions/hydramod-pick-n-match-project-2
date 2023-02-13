@@ -39,11 +39,10 @@ for (let i = 0; i < links.length; i++) {
   });
 }
 
-//Getting game elements
-
-const gameSection = document.getElementsById('game');
+// Getting game elements
+const gameArea = document.getElementById('game');
 const displayLives = document.getElementsByClassName('lives');
 const playerLives = 6;
 
-//set player lives
+// set player lives
 displayLives.textContent = playerLives;
