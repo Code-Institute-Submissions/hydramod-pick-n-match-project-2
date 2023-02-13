@@ -44,3 +44,6 @@ for (let i = 0; i < links.length; i++) {
 const section = document.querySelector('section');
 const lives = document.querySelector('span');
 const playerLives = 6;
+
+//set player lives
+lives.textContent = playerLives;
