@@ -42,8 +42,8 @@ for (let i = 0; i < links.length; i++) {
 //Getting game elements
 
 const section = document.querySelector('section');
-const lives = document.getElementsByClassName('lives');
+const displayLives = document.getElementsByClassName('lives');
 const playerLives = 6;
 
 //set player lives
-lives.textContent = playerLives;
+displayLives.textContent = playerLives;
