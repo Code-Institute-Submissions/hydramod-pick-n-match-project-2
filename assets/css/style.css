@@ -282,6 +282,11 @@ input {
     text-align: center;
 }
 
+.game {
+    background-image: url("../images/pexels-nicola-barts-7943490-2000x1333.jpg");
+    background-attachment: fixed;
+}
+
 .intro-home {
     background-image: url("../images/pexels-nicola-barts-7943257-2000x1333.jpg");
     background-attachment: fixed;
