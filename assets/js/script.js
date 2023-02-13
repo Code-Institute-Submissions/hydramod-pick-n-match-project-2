@@ -40,8 +40,8 @@ for (let i = 0; i < links.length; i++) {
 }
 
 // Getting game elements
-const gameArea = document.getElementById('game');
-const displayLives = document.getElementsByClassName('lives');
+const gameArea = document.querySelector('.game');
+const displayLives = document.querySelector('.lives');
 const playerLives = 6;
 
 // set player lives
