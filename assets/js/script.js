@@ -37,12 +37,76 @@ for (let i = 0; i < links.length; i++) {
     };
     window.scrollTo(scrollOptions);
   });
-}
+};
 
 // Getting game elements
-const gameArea = document.querySelector('.game');
-const displayLives = document.querySelector('.lives');
-const playerLives = 6;
+let gameArea = document.querySelector('.game');
+let displayLives = document.querySelector('.lives');
+let playerLives = 6;
 
 // set player lives
 displayLives.textContent = playerLives;
+
+//get images and put into array
+let getImages = () => [
+  {imgSrc: "../images/butterfly.jpg", name: "butterfly"},
+  {imgSrc: "../images/cat.jpg", name: "cat"},
+  {imgSrc: "../images/dog.jpg", name: "dog"},
+  {imgSrc: "../images/dolphin.jpg", name: "dolphin"},
+  {imgSrc: "../images/eagle.jpg", name: "eagle"},
+  {imgSrc: "../images/elephant.jpg", name: "elephant"},
+  {imgSrc: "../images/fish.jpg", name: "fish"},
+  {imgSrc: "../images/fox.jpg", name: "fox"},
+  {imgSrc: "../images/frog.jpg", name: "frog"},
+  {imgSrc: "../images/gorilla.jpg", name: "gorilla"},
+  {imgSrc: "../images/lion.jpg", name: "lion"},
+  {imgSrc: "../images/owl.jpg", name: "lion"},
+  {imgSrc: "../images/ram.jpg", name: "ram"},
+  {imgSrc: "../images/stag.jpg", name: "stag"},
+  {imgSrc: "../images/tiger.jpg", name: "tiger"},
+  {imgSrc: "../images/wolf.jpg", name: "wolf"},
+  {imgSrc: "../images/butterfly.jpg", name: "butterfly"},
+  {imgSrc: "../images/cat.jpg", name: "cat"},
+  {imgSrc: "../images/dog.jpg", name: "dog"},
+  {imgSrc: "../images/dolphin.jpg", name: "dolphin"},
+  {imgSrc: "../images/eagle.jpg", name: "eagle"},
+  {imgSrc: "../images/elephant.jpg", name: "elephant"},
+  {imgSrc: "../images/fish.jpg", name: "fish"},
+  {imgSrc: "../images/fox.jpg", name: "fox"},
+  {imgSrc: "../images/frog.jpg", name: "frog"},
+  {imgSrc: "../images/gorilla.jpg", name: "gorilla"},
+  {imgSrc: "../images/lion.jpg", name: "lion"},
+  {imgSrc: "../images/owl.jpg", name: "lion"},
+  {imgSrc: "../images/ram.jpg", name: "ram"},
+  {imgSrc: "../images/stag.jpg", name: "stag"},
+  {imgSrc: "../images/tiger.jpg", name: "tiger"},
+  {imgSrc: "../images/wolf.jpg", name: "wolf"}
+];
+
+//randomize images array
+let randomize = () => {
+  let pics = getImages();
+  pics.sort(() => Math.random() - 0.5);
+  return pics;
+};
+
+//game generate
+let cardGen = () => {
+  let pics = randomize();
+
+  //generate html, looping through all images
+  pics.forEach(item => {
+    let card = document.createElement('div');
+    let face = document.createElement('img');
+    let back = document.createElement('div');
+    card.classList = 'card';
+    face.classList = 'face';
+    back.classList = 'back';
+
+    //Dsiplay pics on screen
+    gameArea.appendChild(card);
+    card.appendChild(face);
+    card.appendChild(back);
+
+  });
+};
