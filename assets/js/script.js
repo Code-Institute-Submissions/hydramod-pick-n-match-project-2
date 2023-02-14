@@ -47,7 +47,9 @@ let displayLives = document.querySelector('.lives');
 let playerLives = 6;
 
 // set player lives
-displayLives.textContent = playerLives;
+if(displayLives){
+  displayLives.textContent = playerLives;
+};
 
 //get images and put into array
 let getImages = () => [
@@ -151,7 +153,8 @@ let checkMatch = (event) => {
       if(playerLives === 0) {
         window.location.href = 'game-end.html';
         document.addEventListener("DOMContentLoaded", function(){
-          document.getElementsByClassName('game-end-home').style.backgroundImage = 'url("./assets/images/gameover.jpg")';
+          let background = document.querySelector('.game-end-home');
+          background.style.backgroundImage = 'url("./assets/images/gameover.jpg")';
         })
       }
     }
@@ -160,7 +163,8 @@ let checkMatch = (event) => {
   if(flipCard.length === 32) {
     window.location.href = 'game-end.html';
     document.addEventListener("DOMContentLoaded", function(){
-      document.getElementsByClassName('game-end-home').style.backgroundImage = 'url("./assets/images/youwin.jpg")';
+      let background = document.querySelector('.game-end-home');
+      background.style.backgroundImage = 'url("./assets/images/youwin.jpg")';
     })
   }
 };
@@ -184,7 +188,9 @@ let resetGame = () => {
 };
 
 //generate the game
-cardGen();
+if(gameArea){
+  cardGen();
+  //button for reset
+  document.getElementById('reset').onclick = resetGame;
+};
 
-//button for reset
-document.getElementById('reset').onclick = resetGame;
