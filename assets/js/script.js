@@ -87,31 +87,31 @@ let getImages = () => [
 
 //randomize images array
 let randomize = () => {
-  let pics = getImages();
-  pics.sort(() => Math.random() - 0.5);
-  return pics;
+  let cardInfo = getImages();
+  cardInfo.sort(() => Math.random() - 0.5);
+  return cardInfo;
 };
 
 //game generate
-let picGen = () => {
-  let pics = randomize();
+let cardGen = () => {
+  let cardInfo = randomize();
 
   //generate html, looping through all images
-  pics.forEach(item => {
+  cardInfo.forEach(item => {
     let card = document.createElement('div');
-    let face = document.createElement('img');
+    let front = document.createElement('img');
     let back = document.createElement('div');
     card.classList = 'card';
-    face.classList = 'face';
+    front.classList = 'front';
     back.classList = 'back';
 
     //Adding image source and animal name
-    face.src = item.imgSrc;
+    front.src = item.imgSrc;
     card.setAttribute('name', item.name);
 
-    //Dsiplay pics on screen
+    //Dsiplay cardInfo on screen
     gameArea.appendChild(card);
-    card.appendChild(face);
+    card.appendChild(front);
     card.appendChild(back);
 
     //flip the cards when clicked
@@ -125,14 +125,38 @@ let picGen = () => {
 //check if cards match
 let checkMatch = (event) => {
   let clickedCard = event.target;
-  let flippedCards = document.querySelectorAll('.flipped');
+  //add flipped attribute to track flipped cards
   clickedCard.classList.add('flipped');
-
+  let flippedCards = document.querySelectorAll('.flipped');
+  
   if(flippedCards.length === 2) {
     if(flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
       console.log('match');
+      //remove flipped attribute so the game keeps going
+      flippedCards.forEach(card => {
+        card.classList.remove('flipped');
+        //make cards unclickable after a match
+        card.style.pointerEvents = 'none';
+      });
+    } else {
+      console.log('no match');
+      //remove flipped/flipCard attribute so the game keeps going
+      flippedCards.forEach(card => {
+        card.classList.remove('flipped');
+        setTimeout(() => card.classList.remove('flipCard'), 1500);
+      });
+      //update player lives on screen
+      playerLives--;
+      displayLives.textContent = playerLives;
     }
   }
 };
 
-picGen();
+let resetGame = () => {
+  let cardInfo = randomize();
+  let front = document.querySelectorAll('.front');
+  let cards = document.querySelectorAll('.card');
+  cardInfo.forEach
+}
+
+cardGen();
