@@ -62,7 +62,7 @@ let getImages = () => [
   {imgSrc: "./assets/images/frog.jpg", name: "frog"},
   {imgSrc: "./assets/images/gorilla.jpg", name: "gorilla"},
   {imgSrc: "./assets/images/lion.jpg", name: "lion"},
-  {imgSrc: "./assets/images/owl.jpg", name: "lion"},
+  {imgSrc: "./assets/images/owl.jpg", name: "owl"},
   {imgSrc: "./assets/images/ram.jpg", name: "ram"},
   {imgSrc: "./assets/images/stag.jpg", name: "stag"},
   {imgSrc: "./assets/images/tiger.jpg", name: "tiger"},
@@ -78,7 +78,7 @@ let getImages = () => [
   {imgSrc: "./assets/images/frog.jpg", name: "frog"},
   {imgSrc: "./assets/images/gorilla.jpg", name: "gorilla"},
   {imgSrc: "./assets/images/lion.jpg", name: "lion"},
-  {imgSrc: "./assets/images/owl.jpg", name: "lion"},
+  {imgSrc: "./assets/images/owl.jpg", name: "owl"},
   {imgSrc: "./assets/images/ram.jpg", name: "ram"},
   {imgSrc: "./assets/images/stag.jpg", name: "stag"},
   {imgSrc: "./assets/images/tiger.jpg", name: "tiger"},
@@ -128,6 +128,8 @@ let checkMatch = (event) => {
   //add flipped attribute to track flipped cards
   clickedCard.classList.add('flipped');
   let flippedCards = document.querySelectorAll('.flipped');
+  //Track flip attribute
+  let flipCard = document.querySelectorAll('.flipCard');
   
   if(flippedCards.length === 2) {
     if(flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
@@ -147,15 +149,21 @@ let checkMatch = (event) => {
       playerLives--;
       displayLives.textContent = playerLives;
       if(playerLives === 0) {
-        endGame();
+        window.location.href = 'game-end.html';
+        document.addEventListener("DOMContentLoaded", function(){
+          document.getElementsByClassName('game-end-home').style.backgroundImage = 'url("./assets/images/gameover.jpg")';
+        })
       }
     }
   }
+  //check if game is won
+  if(flipCard.length === 32) {
+    window.location.href = 'game-end.html';
+    document.addEventListener("DOMContentLoaded", function(){
+      document.getElementsByClassName('game-end-home').style.backgroundImage = 'url("./assets/images/youwin.jpg")';
+    })
+  }
 };
-
-let endGame = () => {
-  window.location.href = 'game-end.html';
-}
 
 //Reset the game
 let resetGame = () => {

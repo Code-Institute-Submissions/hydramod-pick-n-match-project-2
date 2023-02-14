@@ -541,7 +541,6 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
 }
 
 .game-end-home {
-    background-image: url("../images/gameover.jpg");
     background-attachment: fixed;
 }
 
