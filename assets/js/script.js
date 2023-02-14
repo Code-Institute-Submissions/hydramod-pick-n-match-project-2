@@ -39,6 +39,8 @@ for (let i = 0; i < links.length; i++) {
   });
 };
 
+/**The Game**/
+
 // Getting game elements
 let gameArea = document.querySelector('.game');
 let displayLives = document.querySelector('.lives');
@@ -49,38 +51,38 @@ displayLives.textContent = playerLives;
 
 //get images and put into array
 let getImages = () => [
-  {imgSrc: "../images/butterfly.jpg", name: "butterfly"},
-  {imgSrc: "../images/cat.jpg", name: "cat"},
-  {imgSrc: "../images/dog.jpg", name: "dog"},
-  {imgSrc: "../images/dolphin.jpg", name: "dolphin"},
-  {imgSrc: "../images/eagle.jpg", name: "eagle"},
-  {imgSrc: "../images/elephant.jpg", name: "elephant"},
-  {imgSrc: "../images/fish.jpg", name: "fish"},
-  {imgSrc: "../images/fox.jpg", name: "fox"},
-  {imgSrc: "../images/frog.jpg", name: "frog"},
-  {imgSrc: "../images/gorilla.jpg", name: "gorilla"},
-  {imgSrc: "../images/lion.jpg", name: "lion"},
-  {imgSrc: "../images/owl.jpg", name: "lion"},
-  {imgSrc: "../images/ram.jpg", name: "ram"},
-  {imgSrc: "../images/stag.jpg", name: "stag"},
-  {imgSrc: "../images/tiger.jpg", name: "tiger"},
-  {imgSrc: "../images/wolf.jpg", name: "wolf"},
-  {imgSrc: "../images/butterfly.jpg", name: "butterfly"},
-  {imgSrc: "../images/cat.jpg", name: "cat"},
-  {imgSrc: "../images/dog.jpg", name: "dog"},
-  {imgSrc: "../images/dolphin.jpg", name: "dolphin"},
-  {imgSrc: "../images/eagle.jpg", name: "eagle"},
-  {imgSrc: "../images/elephant.jpg", name: "elephant"},
-  {imgSrc: "../images/fish.jpg", name: "fish"},
-  {imgSrc: "../images/fox.jpg", name: "fox"},
-  {imgSrc: "../images/frog.jpg", name: "frog"},
-  {imgSrc: "../images/gorilla.jpg", name: "gorilla"},
-  {imgSrc: "../images/lion.jpg", name: "lion"},
-  {imgSrc: "../images/owl.jpg", name: "lion"},
-  {imgSrc: "../images/ram.jpg", name: "ram"},
-  {imgSrc: "../images/stag.jpg", name: "stag"},
-  {imgSrc: "../images/tiger.jpg", name: "tiger"},
-  {imgSrc: "../images/wolf.jpg", name: "wolf"}
+  {imgSrc: "./assets/images/butterfly.jpg", name: "butterfly"},
+  {imgSrc: "./assets/images/cat.jpg", name: "cat"},
+  {imgSrc: "./assets/images/dog.jpg", name: "dog"},
+  {imgSrc: "./assets/images/dolphin.jpg", name: "dolphin"},
+  {imgSrc: "./assets/images/eagle.jpg", name: "eagle"},
+  {imgSrc: "./assets/images/elephant.jpg", name: "elephant"},
+  {imgSrc: "./assets/images/fish.jpg", name: "fish"},
+  {imgSrc: "./assets/images/fox.jpg", name: "fox"},
+  {imgSrc: "./assets/images/frog.jpg", name: "frog"},
+  {imgSrc: "./assets/images/gorilla.jpg", name: "gorilla"},
+  {imgSrc: "./assets/images/lion.jpg", name: "lion"},
+  {imgSrc: "./assets/images/owl.jpg", name: "lion"},
+  {imgSrc: "./assets/images/ram.jpg", name: "ram"},
+  {imgSrc: "./assets/images/stag.jpg", name: "stag"},
+  {imgSrc: "./assets/images/tiger.jpg", name: "tiger"},
+  {imgSrc: "./assets/images/wolf.jpg", name: "wolf"},
+  {imgSrc: "./assets/images/butterfly.jpg", name: "butterfly"},
+  {imgSrc: "./assets/images/cat.jpg", name: "cat"},
+  {imgSrc: "./assets/images/dog.jpg", name: "dog"},
+  {imgSrc: "./assets/images/dolphin.jpg", name: "dolphin"},
+  {imgSrc: "./assets/images/eagle.jpg", name: "eagle"},
+  {imgSrc: "./assets/images/elephant.jpg", name: "elephant"},
+  {imgSrc: "./assets/images/fish.jpg", name: "fish"},
+  {imgSrc: "./assets/images/fox.jpg", name: "fox"},
+  {imgSrc: "./assets/images/frog.jpg", name: "frog"},
+  {imgSrc: "./assets/images/gorilla.jpg", name: "gorilla"},
+  {imgSrc: "./assets/images/lion.jpg", name: "lion"},
+  {imgSrc: "./assets/images/owl.jpg", name: "lion"},
+  {imgSrc: "./assets/images/ram.jpg", name: "ram"},
+  {imgSrc: "./assets/images/stag.jpg", name: "stag"},
+  {imgSrc: "./assets/images/tiger.jpg", name: "tiger"},
+  {imgSrc: "./assets/images/wolf.jpg", name: "wolf"}
 ];
 
 //randomize images array
@@ -91,7 +93,7 @@ let randomize = () => {
 };
 
 //game generate
-let cardGen = () => {
+let picGen = () => {
   let pics = randomize();
 
   //generate html, looping through all images
@@ -103,6 +105,9 @@ let cardGen = () => {
     face.classList = 'face';
     back.classList = 'back';
 
+    //Adding image source
+    face.src = item.imgSrc;
+
     //Dsiplay pics on screen
     gameArea.appendChild(card);
     card.appendChild(face);
@@ -110,3 +115,5 @@ let cardGen = () => {
 
   });
 };
+
+picGen();
