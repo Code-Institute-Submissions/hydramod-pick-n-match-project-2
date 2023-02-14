@@ -131,7 +131,6 @@ let checkMatch = (event) => {
   
   if(flippedCards.length === 2) {
     if(flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
-      console.log('match');
       //remove flipped attribute so the game keeps going
       flippedCards.forEach(card => {
         card.classList.remove('flipped');
@@ -139,24 +138,45 @@ let checkMatch = (event) => {
         card.style.pointerEvents = 'none';
       });
     } else {
-      console.log('no match');
       //remove flipped/flipCard attribute so the game keeps going
       flippedCards.forEach(card => {
         card.classList.remove('flipped');
         setTimeout(() => card.classList.remove('flipCard'), 1500);
       });
-      //update player lives on screen
+      //update player lives on screen and send to game over screen
       playerLives--;
       displayLives.textContent = playerLives;
+      if(playerLives === 0) {
+        endGame();
+      }
     }
   }
 };
 
+let endGame = () => {
+  window.location.href = 'game-end.html';
+}
+
+//Reset the game
 let resetGame = () => {
   let cardInfo = randomize();
   let front = document.querySelectorAll('.front');
-  let cards = document.querySelectorAll('.card');
-  cardInfo.forEach
-}
+  let card = document.querySelectorAll('.card');
+  cardInfo.forEach((item, i) => {
+    card[i].classList.remove('toggleCard');
+    //reset and randomize cards
+    setTimeout(() => {
+      card[i].style.pointerEvents = 'all';
+      front[i].src = item.imgSrc;
+      card[i].setAttribute('name', item.name);
+    }, 1000);
+  });
+  playerLives = 6;
+  displayLives.textContent = playerLives;
+};
 
+//generate the game
 cardGen();
+
+//button for reset
+document.getElementById('reset').onclick = resetGame;

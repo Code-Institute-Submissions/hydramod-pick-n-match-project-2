@@ -491,6 +491,20 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
     background-attachment: fixed;
 }
 
+.button-start, button-start:active {
+    background-color: #22aa35 !important;
+    border-color: #22aa35 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+}
+
+.button-end, button-start:end {
+    background-color: #aa2222 !important;
+    border-color: #aa2b22 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+}
+
 .grid {
    display: grid;
    grid-template-columns: repeat(8, 8rem);
@@ -524,6 +538,11 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
 
 .flipCard {
     transform: rotateY(180deg);
+}
+
+.game-end-home {
+    background-image: url("../images/gameover.jpg");
+    background-attachment: fixed;
 }
 
 /*footer styling*/
