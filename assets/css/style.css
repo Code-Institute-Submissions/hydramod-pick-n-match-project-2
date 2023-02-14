@@ -493,18 +493,18 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
 
 .grid {
    display: grid;
-   grid-template-columns: repeat(4, 8rem);
+   grid-template-columns: repeat(8, 8rem);
    grid-template-rows: repeat(4, 8rem);
    justify-content: center;
    grid-gap: 1rem;
-   perspective: 800px;
+   perspective: 600px;
 }
 
 .card {
     position: relative;
     transform-style: preserve-3d;
     transition: 2s ease;
-    transform: rotateY('90deg');
+    transform: rotateY(90deg);
 }
 
 .face, .back {
