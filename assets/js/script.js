@@ -105,15 +105,34 @@ let picGen = () => {
     face.classList = 'face';
     back.classList = 'back';
 
-    //Adding image source
+    //Adding image source and animal name
     face.src = item.imgSrc;
+    card.setAttribute('name', item.name);
 
     //Dsiplay pics on screen
     gameArea.appendChild(card);
     card.appendChild(face);
     card.appendChild(back);
 
+    //flip the cards when clicked
+    card.addEventListener('click', (event) => {
+      card.classList.toggle('flipCard');
+      checkMatch(event);
+    });
   });
+};
+
+//check if cards match
+let checkMatch = (event) => {
+  let clickedCard = event.target;
+  let flippedCards = document.querySelectorAll('.flipped');
+  clickedCard.classList.add('flipped');
+
+  if(flippedCards.length === 2) {
+    if(flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
+      console.log('match');
+    }
+  }
 };
 
 picGen();

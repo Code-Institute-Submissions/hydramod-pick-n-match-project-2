@@ -503,19 +503,27 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
 .card {
     position: relative;
     transform-style: preserve-3d;
-    transition: 2s ease;
-    transform: rotateY(90deg);
+    transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
 }
 
 .face, .back {
     width: 100%;
     height: 100%;
     position: absolute;
+    border: 2px solid black;
+    border-radius: 5px;
+    pointer-events: none;
 }
 
 .back {
     background-image: url('../images/question.jpg');
+    background-size: cover;
     backface-visibility: hidden;
+}
+
+.flipCard {
+    transform: rotateY(180deg);
 }
 
 /*footer styling*/
