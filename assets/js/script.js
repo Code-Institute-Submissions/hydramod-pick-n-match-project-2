@@ -154,6 +154,8 @@ const checkMatch = (event) => {
   if(flippedCards.length === 2) {
     if(flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
       matchSound.play();
+      playerLives++;
+      displayLives.textContent = playerLives;
       //remove flipped attribute so the game keeps going
       flippedCards.forEach(card => {
         card.classList.remove('flipped');
