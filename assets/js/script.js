@@ -46,12 +46,17 @@ const intro = document.querySelector('.intro-home');
 const gameArea = document.querySelector('.game');
 const displayLives = document.querySelector('.lives');
 const background = document.querySelector('.game-end-home');
+const startButton = document.querySelector('.button-start');
+const endButton = document.querySelector('.button-end');
 let playerLives = 6;
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 let result = params.result;
-const introSound = new Audio('./assets/audio/Elevator-Music-(Kevin MacLeod).mp3')
+const buttonSound = new Audio('./assets/audio/button.mp3');
+const introSound = new Audio('./assets/audio/Elevator-Music-(Kevin MacLeod).mp3');
 const flipSound = new Audio('./assets/audio/card-flip.mp3');
+const matchSound = new Audio('./assets/audio/match.mp3');
+const noMatchSound = new Audio('./assets/audio/nomatch.mp3');
 const gameOverSound = new Audio('./assets/audio/game-over.mp3');
 const winSound = new Audio('./assets/audio/winner.mp3');
 
@@ -148,6 +153,7 @@ const checkMatch = (event) => {
   
   if(flippedCards.length === 2) {
     if(flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
+      matchSound.play();
       //remove flipped attribute so the game keeps going
       flippedCards.forEach(card => {
         card.classList.remove('flipped');
@@ -155,6 +161,7 @@ const checkMatch = (event) => {
         card.style.pointerEvents = 'none';
       });
     } else {
+      noMatchSound.play();
       //remove flipped/flipCard attribute so the game keeps going
       flippedCards.forEach(card => {
         card.classList.remove('flipped');
@@ -219,3 +226,19 @@ if(intro || gameArea) {
   });
 };
 
+//Add button sounds
+startButton.addEventListener('click', function (event) {
+  event.preventDefault(); // Stop default behavior
+  buttonSound.play(); // Play sound effect
+  setTimeout(function() { // Wait for sound effect to finish
+    window.location.href = startButton.href; // Follow link
+  }, buttonSound.duration * 1000); // Multiply duration by 1000 to convert to milliseconds
+});
+
+endButton.addEventListener('click', function (event) {
+  event.preventDefault(); // Stop default behavior
+  buttonSound.play(); // Play sound effect
+  setTimeout(function() { // Wait for sound effect to finish
+    window.location.href = endButton.href; // Follow link
+  }, buttonSound.duration * 1000); // Multiply duration by 1000 to convert to milliseconds
+});
