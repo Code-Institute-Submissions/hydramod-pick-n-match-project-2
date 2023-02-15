@@ -42,17 +42,18 @@ for (let i = 0; i < links.length; i++) {
 /**The Game**/
 
 // Getting game elements
-let intro = document.querySelector('.intro-home');
-let gameArea = document.querySelector('.game');
-let displayLives = document.querySelector('.lives');
-let playerLives = 6;
+const intro = document.querySelector('.intro-home');
+const gameArea = document.querySelector('.game');
+const displayLives = document.querySelector('.lives');
+const playerLives = 6;
+const background = document.querySelector('.game-end-home');
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 const result = params.result;
-let introSound = new Audio('./assets/audio/Elevator-Music-(Kevin MacLeod).mp3')
-let flipSound = new Audio('./assets/audio/card-flip.mp3');
-let gameOverSound = new Audio('./assets/audio/game-over.mp3');
-let winSound = new Audio('./assets/audio/winner.mp3');
+const introSound = new Audio('./assets/audio/Elevator-Music-(Kevin MacLeod).mp3')
+const flipSound = new Audio('./assets/audio/card-flip.mp3');
+const gameOverSound = new Audio('./assets/audio/game-over.mp3');
+const winSound = new Audio('./assets/audio/winner.mp3');
 
 // set player lives
 if(displayLives){
@@ -60,7 +61,7 @@ if(displayLives){
 };
 
 //get images and put into array
-let getImages = () => [
+const getImages = () => [
   {imgSrc: "./assets/images/butterfly.jpg", name: "butterfly"},
   {imgSrc: "./assets/images/cat.jpg", name: "cat"},
   {imgSrc: "./assets/images/dog.jpg", name: "dog"},
@@ -96,14 +97,14 @@ let getImages = () => [
 ];
 
 //randomize images array
-let randomize = () => {
+const randomize = () => {
   let cardInfo = getImages();
   cardInfo.sort(() => Math.random() - 0.5);
   return cardInfo;
 };
 
 //game generate
-let cardGen = () => {
+const cardGen = () => {
   let cardInfo = randomize();
 
   //generate html, looping through all images
@@ -137,7 +138,7 @@ let cardGen = () => {
 };
 
 //check if cards match
-let checkMatch = (event) => {
+const checkMatch = (event) => {
   let clickedCard = event.target;
   //add flipped attribute to track flipped cards
   clickedCard.classList.add('flipped');
@@ -174,7 +175,7 @@ let checkMatch = (event) => {
 };
 
 //Reset the game
-let resetGame = () => {
+const resetGame = () => {
   let cardInfo = randomize();
   let front = document.querySelectorAll('.front');
   let card = document.querySelectorAll('.card');
@@ -203,7 +204,6 @@ if(gameArea){
 };
 
 //set images and sound effects for game end screen
-let background = document.querySelector('.game-end-home');
 if(result === 'lose') {
   background.style.backgroundImage = 'url("./assets/images/gameover.jpg")';
   gameOverSound.play();
