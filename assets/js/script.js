@@ -42,12 +42,17 @@ for (let i = 0; i < links.length; i++) {
 /**The Game**/
 
 // Getting game elements
+let intro = document.querySelector('.intro-home');
 let gameArea = document.querySelector('.game');
 let displayLives = document.querySelector('.lives');
 let playerLives = 6;
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 const result = params.result;
+let introSound = new Audio('./assets/audio/Elevator-Music-(Kevin MacLeod).mp3')
+let flipSound = new Audio('./assets/audio/card-flip.mp3');
+let gameOverSound = new Audio('./assets/audio/game-over.mp3');
+let winSound = new Audio('./assets/audio/winner.mp3');
 
 // set player lives
 if(displayLives){
@@ -113,6 +118,9 @@ let cardGen = () => {
     //Adding image source and animal name
     front.src = item.imgSrc;
     card.setAttribute('name', item.name);
+    card.setAttribute('alt', item.name);
+    back.setAttribute('alt', 'Question mark');
+    back.setAttribute('aria-label', 'Flip Card');
 
     //Dsiplay cardInfo on screen
     gameArea.appendChild(card);
@@ -121,6 +129,7 @@ let cardGen = () => {
 
     //flip the cards when clicked
     card.addEventListener('click', (event) => {
+      flipSound.play();
       card.classList.toggle('flipCard');
       checkMatch(event);
     });
@@ -169,6 +178,7 @@ let resetGame = () => {
   let cardInfo = randomize();
   let front = document.querySelectorAll('.front');
   let card = document.querySelectorAll('.card');
+  let back = document.createElement('div');
   cardInfo.forEach((item, i) => {
     card[i].classList.remove('toggleCard');
     //reset and randomize cards
@@ -176,6 +186,9 @@ let resetGame = () => {
       card[i].style.pointerEvents = 'all';
       front[i].src = item.imgSrc;
       card[i].setAttribute('name', item.name);
+      card[i].setAttribute('alt', item.name);
+      back.setAttribute('alt', 'Question mark');
+      back.setAttribute('aria-label', 'Flip Card');
     }, 1000);
   });
   playerLives = 6;
@@ -189,11 +202,20 @@ if(gameArea){
   document.getElementById('reset').onclick = resetGame;
 };
 
-//set images for game end screen
+//set images and sound effects for game end screen
 let background = document.querySelector('.game-end-home');
 if(result === 'lose') {
   background.style.backgroundImage = 'url("./assets/images/gameover.jpg")';
+  gameOverSound.play();
 } else if (result === 'win') {
   background.style.backgroundImage = 'url("./assets/images/youwin.jpg")';
+  winSound.play();
 };
+
+//add elevator music for intro and gameplay (because i found it funny)
+if(intro || gameArea) {
+  window.addEventListener('click', function () {
+    introSound.play();
+  });
+}
 
