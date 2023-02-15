@@ -217,5 +217,5 @@ if(intro || gameArea) {
   window.addEventListener('click', function () {
     introSound.play();
   });
-}
+};
 
