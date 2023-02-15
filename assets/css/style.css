@@ -121,6 +121,10 @@ img {
     white-space: nowrap;
 }
 
+.logo {
+    width: 10%;
+}
+
 .menu .navbar-brand,
 .menu .navbar-brand .navbar-caption-wrap,
 .menu .navbar-brand span {
@@ -278,6 +282,12 @@ input {
 
 .nav-center {
     text-align: center;
+}
+
+.home-logo {
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 50%;
 }
 
 .intro-home {
