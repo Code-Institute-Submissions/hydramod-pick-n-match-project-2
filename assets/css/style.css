@@ -293,19 +293,6 @@ input {
 .intro-home {
     background-image: url("../images/pexels-nicola-barts-7943257-2000x1333.jpg");
     background-attachment: fixed;
-    animation-name: home-zoom;
-    animation-duration: 5s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes home-zoom {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(1.1);
-    }
 }
 
 .fullscreen {
