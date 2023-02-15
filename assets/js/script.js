@@ -45,6 +45,9 @@ for (let i = 0; i < links.length; i++) {
 let gameArea = document.querySelector('.game');
 let displayLives = document.querySelector('.lives');
 let playerLives = 6;
+const urlSearchParams = new URLSearchParams(window.location.search);
+const params = Object.fromEntries(urlSearchParams.entries());
+const result = params.result;
 
 // set player lives
 if(displayLives){
@@ -151,22 +154,14 @@ let checkMatch = (event) => {
       playerLives--;
       displayLives.textContent = playerLives;
       if(playerLives === 0) {
-        window.location.href = 'game-end.html';
-        document.addEventListener("DOMContentLoaded", function(){
-          let background = document.querySelector('.game-end-home');
-          background.style.backgroundImage = 'url("./assets/images/gameover.jpg")';
-        })
-      }
-    }
-  }
+        window.location.href = 'game-end.html?result=lose';
+      };
+    };
+  };
   //check if game is won
   if(flipCard.length === 32) {
-    window.location.href = 'game-end.html';
-    document.addEventListener("DOMContentLoaded", function(){
-      let background = document.querySelector('.game-end-home');
-      background.style.backgroundImage = 'url("./assets/images/youwin.jpg")';
-    })
-  }
+    window.location.href = 'game-end.html?result=win';
+  };
 };
 
 //Reset the game
@@ -192,5 +187,13 @@ if(gameArea){
   cardGen();
   //button for reset
   document.getElementById('reset').onclick = resetGame;
+};
+
+//set images for game end screen
+let background = document.querySelector('.game-end-home');
+if(result === 'lose') {
+  background.style.backgroundImage = 'url("./assets/images/gameover.jpg")';
+} else if (result === 'win') {
+  background.style.backgroundImage = 'url("./assets/images/youwin.jpg")';
 };
 
