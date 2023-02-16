@@ -59,18 +59,19 @@ const startButtonReset = document.querySelector('.button-start-reset');
 const endButton = document.querySelector('.button-end');
 let playerLives = 9;
 
+//get difficulty level from url query
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 if (!params.result) {
   console.error("Result parameter not found");
 }
-
 if (!params.difficulty) {
   console.error("Difficulty parameter not found");
 }
 let result = params.result;
 let difficulty = params.difficulty;
 
+//set sound effects
 let buttonSound, introSound, flipSound, matchSound, noMatchSound, gameOverSound, winSound;
 gameOverSound = new Audio('./assets/audio/game-over.mp3');
 winSound = new Audio('./assets/audio/winner.mp3');
@@ -91,6 +92,7 @@ const playSound = (audio) => {
   }
 };
 
+//load sound effects
 window.addEventListener('load', loadSounds);
 
 // set player lives
@@ -256,7 +258,7 @@ const resetGame = (storedDifficulty) => {
   } else if (storedDifficulty === 'medium') {
     cardCount = 8; // set 8 card pairs for medium difficulty
   } else if (storedDifficulty === 'hard') {
-    cardCount = 16; // set 10 card pairs for hard difficulty
+    cardCount = 16; // set 16 card pairs for hard difficulty
   } else {
     // default to easy difficulty
     cardCount = 6;
@@ -307,45 +309,48 @@ if(intro || gameArea) {
 };
 
 //Add button sounds
-startButtonEasy.addEventListener('click', function(event) {
-  event.preventDefault(); // prevent default button behavior
-  playSound(buttonSound); // play sound effect
-  setTimeout(function() { // wait for sound effect to finish
-    window.location.href = startButtonEasy.href; // Follow link
-  }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
-});
+if(intro) {
+  startButtonEasy.addEventListener('click', function(event) {
+    event.preventDefault(); // prevent default button behavior
+    playSound(buttonSound); // play sound effect
+    setTimeout(function() { // wait for sound effect to finish
+      window.location.href = startButtonEasy.href; // Follow link
+    }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
+  });
 
-startButtonMedium.addEventListener('click', function(event) {
-  event.preventDefault(); // prevent default button behavior
-  playSound(buttonSound); // play sound effect
-  setTimeout(function() { // wait for sound effect to finish
-    window.location.href = startButtonMedium.href; // Follow link
-  }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
-});
+  startButtonMedium.addEventListener('click', function(event) {
+    event.preventDefault(); // prevent default button behavior
+    playSound(buttonSound); // play sound effect
+    setTimeout(function() { // wait for sound effect to finish
+      window.location.href = startButtonMedium.href; // Follow link
+    }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
+  });
+  
+  startButtonHard.addEventListener('click', function(event) {
+    event.preventDefault(); // prevent default button behavior
+    playSound(buttonSound); // play sound effect
+    setTimeout(function() { // wait for sound effect to finish
+      window.location.href = startButtonHard.href; // Follow link
+    }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
+  });
+}
 
-startButtonHard.addEventListener('click', function(event) {
-  event.preventDefault(); // prevent default button behavior
-  playSound(buttonSound); // play sound effect
-  setTimeout(function() { // wait for sound effect to finish
-    window.location.href = startButtonHard.href; // Follow link
-  }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
-});
+if(background) {
+  startButtonReset.addEventListener('click', function(event) {
+    event.preventDefault(); // prevent default button behavior
+    playSound(buttonSound); // play sound effect
+    setTimeout(function() { // wait for sound effect to finish
+      let url = `game.html?difficulty=${storedDifficulty}`;
+      window.location.href = url; // Follow link
+    }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
+  });
+  
+  endButton.addEventListener('click', function (event) {
+    event.preventDefault(); // Stop default behavior
+    playSound(buttonSound); // Play sound effect
+    setTimeout(function() { // Wait for sound effect to finish
+      window.location.href = endButton.href; // Follow link
+    }, buttonSound.duration * 1000); // Multiply duration by 1000 to convert to milliseconds
+  });
+}
 
-startButtonReset.addEventListener('click', function(event) {
-  event.preventDefault(); // prevent default button behavior
-  playSound(buttonSound); // play sound effect
-  setTimeout(function() { // wait for sound effect to finish
-    resetGame(storedDifficulty);
-    let url = `game.html?difficulty=${storedDifficulty}`;
-    console.log(url);
-    window.location.href = url; // Follow link
-  }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
-});
-
-endButton.addEventListener('click', function (event) {
-  event.preventDefault(); // Stop default behavior
-  playSound(buttonSound); // Play sound effect
-  setTimeout(function() { // Wait for sound effect to finish
-    window.location.href = endButton.href; // Follow link
-  }, buttonSound.duration * 1000); // Multiply duration by 1000 to convert to milliseconds
-});
