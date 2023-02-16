@@ -52,13 +52,27 @@ let playerLives = 12;
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 let result = params.result;
-const buttonSound = new Audio('./assets/audio/button.mp3');
-const introSound = new Audio('./assets/audio/Elevator-Music-(Kevin MacLeod).mp3');
-const flipSound = new Audio('./assets/audio/card-flip.mp3');
-const matchSound = new Audio('./assets/audio/match.mp3');
-const noMatchSound = new Audio('./assets/audio/nomatch.mp3');
-const gameOverSound = new Audio('./assets/audio/game-over.mp3');
-const winSound = new Audio('./assets/audio/winner.mp3');
+let buttonSound, introSound, flipSound, matchSound, noMatchSound, gameOverSound, winSound;
+gameOverSound = new Audio('./assets/audio/game-over.mp3');
+winSound = new Audio('./assets/audio/winner.mp3');
+
+//lazy load sounds for efficiency
+const loadSounds = () => {
+  buttonSound = new Audio('./assets/audio/button.mp3');
+  introSound = new Audio('./assets/audio/Elevator-Music-(Kevin MacLeod).mp3');
+  flipSound = new Audio('./assets/audio/card-flip.mp3');
+  matchSound = new Audio('./assets/audio/match.mp3');
+  noMatchSound = new Audio('./assets/audio/nomatch.mp3');
+};
+
+//play sound when called
+const playSound = (Audio) => {
+  if (Audio) {
+    Audio.play();
+  }
+};
+
+window.addEventListener('load', loadSounds);
 
 // set player lives
 if(displayLives){
@@ -135,7 +149,7 @@ const cardGen = () => {
 
     //flip the cards when clicked
     card.addEventListener('click', (event) => {
-      flipSound.play();
+      playSound(flipSound);
       card.classList.toggle('flipCard');
       checkMatch(event);
     });
@@ -153,7 +167,7 @@ const checkMatch = (event) => {
   
   if(flippedCards.length === 2) {
     if(flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
-      matchSound.play();
+      playSound(matchSound);
       playerLives++;
       displayLives.textContent = playerLives;
       //remove flipped attribute so the game keeps going
@@ -163,7 +177,7 @@ const checkMatch = (event) => {
         card.style.pointerEvents = 'none';
       });
     } else {
-      noMatchSound.play();
+      playSound(noMatchSound);
       //remove flipped/flipCard attribute so the game keeps going
       flippedCards.forEach(card => {
         card.classList.remove('flipped');
@@ -215,23 +229,23 @@ if(gameArea){
 //set images and sound effects for game end screen
 if(result === 'lose') {
   background.style.backgroundImage = 'url("./assets/images/gameover.jpg")';
-  gameOverSound.play();
+  playSound(gameOverSound);
 } else if (result === 'win') {
   background.style.backgroundImage = 'url("./assets/images/youwin.jpg")';
-  winSound.play();
+  playSound(winSound);
 };
 
 //add elevator music for intro and gameplay (because i found it funny)
 if(intro || gameArea) {
   window.addEventListener('click', function () {
-    introSound.play();
+    playSound(introSound);
   });
 };
 
 //Add button sounds
 startButton.addEventListener('click', function (event) {
   event.preventDefault(); // Stop default behavior
-  buttonSound.play(); // Play sound effect
+  playSound(buttonSound); // Play sound effect
   setTimeout(function() { // Wait for sound effect to finish
     window.location.href = startButton.href; // Follow link
   }, buttonSound.duration * 1000); // Multiply duration by 1000 to convert to milliseconds
@@ -239,8 +253,8 @@ startButton.addEventListener('click', function (event) {
 
 endButton.addEventListener('click', function (event) {
   event.preventDefault(); // Stop default behavior
-  buttonSound.play(); // Play sound effect
+  playSound(buttonSound); // Play sound effect
   setTimeout(function() { // Wait for sound effect to finish
-    window.location.href = endButton.href; // Follow link
+    window.location.href = startButton.href; // Follow link
   }, buttonSound.duration * 1000); // Multiply duration by 1000 to convert to milliseconds
 });
