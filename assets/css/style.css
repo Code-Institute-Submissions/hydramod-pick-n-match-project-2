@@ -488,7 +488,28 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
     background-attachment: fixed;
 }
 
-.button-start, button-start:active {
+.button-start-easy, button-start:active {
+    background-color: #22aa35 !important;
+    border-color: #22aa35 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+}
+
+.button-start-medium, button-start:active {
+    background-color: #c2880c !important;
+    border-color: #aa7f22 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+}
+
+.button-start-hard, button-start:active {
+    background-color: #aa2222 !important;
+    border-color: #aa2b22 !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+}
+
+.button-start-reset, button-start:active {
     background-color: #22aa35 !important;
     border-color: #22aa35 !important;
     color: #ffffff !important;
@@ -504,8 +525,6 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
 
 .grid {
    display: grid;
-   grid-template-columns: repeat(8, 8rem);
-   grid-template-rows: repeat(4, 8rem);
    justify-content: center;
    grid-gap: 1rem;
    perspective: 600px;

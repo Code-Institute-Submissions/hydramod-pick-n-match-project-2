@@ -44,14 +44,33 @@ for (let i = 0; i < links.length; i++) {
 // Getting game elements
 const intro = document.querySelector('.intro-home');
 const gameArea = document.querySelector('.game');
+const gameGrid = document.querySelector('.grid');
+
 const displayLives = document.querySelector('.lives');
+if (!displayLives) {
+  console.error("Element with class 'lives' not found");
+};
+
 const background = document.querySelector('.game-end-home');
-const startButton = document.querySelector('.button-start');
+const startButtonEasy = document.querySelector('.button-start-easy');
+const startButtonMedium = document.querySelector('.button-start-medium');
+const startButtonHard = document.querySelector('.button-start-hard');
+const startButtonReset = document.querySelector('.button-start-reset');
 const endButton = document.querySelector('.button-end');
-let playerLives = 12;
+let playerLives = 9;
+
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
+if (!params.result) {
+  console.error("Result parameter not found");
+}
+
+if (!params.difficulty) {
+  console.error("Difficulty parameter not found");
+}
 let result = params.result;
+let difficulty = params.difficulty;
+
 let buttonSound, introSound, flipSound, matchSound, noMatchSound, gameOverSound, winSound;
 gameOverSound = new Audio('./assets/audio/game-over.mp3');
 winSound = new Audio('./assets/audio/winner.mp3');
@@ -66,9 +85,9 @@ const loadSounds = () => {
 };
 
 //play sound when called
-const playSound = (Audio) => {
-  if (Audio) {
-    Audio.play();
+const playSound = (audio) => {
+  if (audio) {
+    audio.play();
   }
 };
 
@@ -79,78 +98,95 @@ if(displayLives){
   displayLives.textContent = playerLives;
 };
 
-//get images and put into array
+// Get images and put into an array
 const getImages = () => [
-  {imgSrc: "./assets/images/butterfly.jpg", name: "butterfly"},
-  {imgSrc: "./assets/images/cat.jpg", name: "cat"},
-  {imgSrc: "./assets/images/dog.jpg", name: "dog"},
-  {imgSrc: "./assets/images/dolphin.jpg", name: "dolphin"},
-  {imgSrc: "./assets/images/eagle.jpg", name: "eagle"},
-  {imgSrc: "./assets/images/elephant.jpg", name: "elephant"},
-  {imgSrc: "./assets/images/fish.jpg", name: "fish"},
-  {imgSrc: "./assets/images/fox.jpg", name: "fox"},
-  {imgSrc: "./assets/images/frog.jpg", name: "frog"},
-  {imgSrc: "./assets/images/gorilla.jpg", name: "gorilla"},
-  {imgSrc: "./assets/images/lion.jpg", name: "lion"},
-  {imgSrc: "./assets/images/owl.jpg", name: "owl"},
-  {imgSrc: "./assets/images/ram.jpg", name: "ram"},
-  {imgSrc: "./assets/images/stag.jpg", name: "stag"},
-  {imgSrc: "./assets/images/tiger.jpg", name: "tiger"},
-  {imgSrc: "./assets/images/wolf.jpg", name: "wolf"},
-  {imgSrc: "./assets/images/butterfly.jpg", name: "butterfly"},
-  {imgSrc: "./assets/images/cat.jpg", name: "cat"},
-  {imgSrc: "./assets/images/dog.jpg", name: "dog"},
-  {imgSrc: "./assets/images/dolphin.jpg", name: "dolphin"},
-  {imgSrc: "./assets/images/eagle.jpg", name: "eagle"},
-  {imgSrc: "./assets/images/elephant.jpg", name: "elephant"},
-  {imgSrc: "./assets/images/fish.jpg", name: "fish"},
-  {imgSrc: "./assets/images/fox.jpg", name: "fox"},
-  {imgSrc: "./assets/images/frog.jpg", name: "frog"},
-  {imgSrc: "./assets/images/gorilla.jpg", name: "gorilla"},
-  {imgSrc: "./assets/images/lion.jpg", name: "lion"},
-  {imgSrc: "./assets/images/owl.jpg", name: "owl"},
-  {imgSrc: "./assets/images/ram.jpg", name: "ram"},
-  {imgSrc: "./assets/images/stag.jpg", name: "stag"},
-  {imgSrc: "./assets/images/tiger.jpg", name: "tiger"},
-  {imgSrc: "./assets/images/wolf.jpg", name: "wolf"}
+  { imgSrc: "./assets/images/butterfly.jpg", name: "butterfly" },
+  { imgSrc: "./assets/images/cat.jpg", name: "cat" },
+  { imgSrc: "./assets/images/dog.jpg", name: "dog" },
+  { imgSrc: "./assets/images/dolphin.jpg", name: "dolphin" },
+  { imgSrc: "./assets/images/eagle.jpg", name: "eagle" },
+  { imgSrc: "./assets/images/elephant.jpg", name: "elephant" },
+  { imgSrc: "./assets/images/fish.jpg", name: "fish" },
+  { imgSrc: "./assets/images/fox.jpg", name: "fox" },
+  { imgSrc: "./assets/images/frog.jpg", name: "frog" },
+  { imgSrc: "./assets/images/gorilla.jpg", name: "gorilla" },
+  { imgSrc: "./assets/images/lion.jpg", name: "lion" },
+  { imgSrc: "./assets/images/owl.jpg", name: "owl" },
+  { imgSrc: "./assets/images/ram.jpg", name: "ram" },
+  { imgSrc: "./assets/images/stag.jpg", name: "stag" },
+  { imgSrc: "./assets/images/tiger.jpg", name: "tiger" },
+  { imgSrc: "./assets/images/wolf.jpg", name: "wolf" },
 ];
 
-//randomize images array
-const randomize = () => {
-  let cardInfo = getImages();
-  cardInfo.sort(() => Math.random() - 0.5);
-  return cardInfo;
+// Shuffle the array and return only matched pairs for the game to work
+const shuffle = (array) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
 };
 
-//game generate
-const cardGen = () => {
-  let cardInfo = randomize();
+// Generate game according to difficulty
+const cardGen = (difficulty) => {
+  let cardCount;
+  let gridColumns;
+  switch (difficulty) {
+    case "easy":
+      cardCount = 4;
+      gridColumns = "repeat(4, 8rem)";
+      gridRows = "repeat(2, 8rem)";
+      break;
+    case "medium":
+      cardCount = 8;
+      gridColumns = "repeat(4, 8rem)";
+      gridRows = "repeat(4, 8rem)";
+      break;
+    case "hard":
+      cardCount = 16;
+      gridColumns = "repeat(8, 8rem)";
+      gridRows = "repeat(4, 8rem)";
+      break;
+    default:
+      cardCount = 4;
+      gridColumns = "repeat(4, 8rem)";
+      gridRows = "repeat(2, 8rem)";
+  }
 
-  //generate html, looping through all images
-  cardInfo.forEach(item => {
-    let card = document.createElement('div');
-    let front = document.createElement('img');
-    let back = document.createElement('div');
-    card.classList = 'card';
-    front.classList = 'front';
-    back.classList = 'back';
+  let cardInfo = shuffle(getImages());
+  const pairs = cardInfo.slice(0, cardCount);
+  const shuffledPairs = shuffle([...pairs, ...pairs]);
 
-    //Adding image source and animal name
+  // Set up grid according to game difficulty
+  gameGrid.style.gridTemplateColumns = gridColumns;
+  gameGrid.style.gridTemplateRows = gridRows;
+
+  // Generate HTML for each card
+  shuffledPairs.forEach((item) => {
+    let card = document.createElement("div");
+    let front = document.createElement("img");
+    let back = document.createElement("div");
+    card.classList = "card";
+    front.classList = "front";
+    back.classList = "back";
+
+    // Add image source and animal name
     front.src = item.imgSrc;
-    card.setAttribute('name', item.name);
-    card.setAttribute('alt', item.name);
-    back.setAttribute('alt', 'Question mark');
-    back.setAttribute('aria-label', 'Flip Card');
+    card.setAttribute("name", item.name);
+    card.setAttribute("alt", item.name);
+    back.setAttribute("alt", "Question mark");
+    back.setAttribute("aria-label", "Flip Card");
 
-    //Dsiplay cardInfo on screen
+    // Display card on screen
     gameArea.appendChild(card);
     card.appendChild(front);
     card.appendChild(back);
 
-    //flip the cards when clicked
-    card.addEventListener('click', (event) => {
+    // Flip the cards when clicked
+    card.addEventListener("click", (event) => {
       playSound(flipSound);
-      card.classList.toggle('flipCard');
+      card.classList.toggle("flipCard");
       checkMatch(event);
     });
   });
@@ -187,25 +223,52 @@ const checkMatch = (event) => {
       playerLives--;
       displayLives.textContent = playerLives;
       if(playerLives === 0) {
+        saveDifficulty(difficulty);
         window.location.href = 'game-end.html?result=lose';
       };
     };
   };
   //check if game is won
-  if(flipCard.length === 32) {
+  if(difficulty === 'easy' && flipCard.length === 8) {
+    saveDifficulty(difficulty);
+    window.location.href = 'game-end.html?result=win';
+  } else if(difficulty === 'medium' && flipCard.length === 16) {
+    saveDifficulty(difficulty);
+    window.location.href = 'game-end.html?result=win';
+  } else if(difficulty === 'hard' && flipCard.length === 32) {
+    saveDifficulty(difficulty);
     window.location.href = 'game-end.html?result=win';
   };
 };
 
-//Reset the game
-const resetGame = () => {
-  let cardInfo = randomize();
+// Save difficulty level after game is played
+const saveDifficulty = (difficulty) => {
+  localStorage.setItem('difficulty', difficulty);
+};
+
+let storedDifficulty = localStorage.getItem('difficulty');
+
+// Reset the game with difficulty level
+const resetGame = (storedDifficulty) => {
+  let cardCount;
+  if (storedDifficulty === 'easy') {
+    cardCount = 4; // set 6 card pairs for easy difficulty
+  } else if (storedDifficulty === 'medium') {
+    cardCount = 8; // set 8 card pairs for medium difficulty
+  } else if (storedDifficulty === 'hard') {
+    cardCount = 16; // set 10 card pairs for hard difficulty
+  } else {
+    // default to easy difficulty
+    cardCount = 6;
+  }
+
+  let cardInfo = randomize(cardCount);
   let front = document.querySelectorAll('.front');
   let card = document.querySelectorAll('.card');
   let back = document.createElement('div');
   cardInfo.forEach((item, i) => {
     card[i].classList.remove('toggleCard');
-    //reset and randomize cards
+    // reset and randomize cards
     setTimeout(() => {
       card[i].style.pointerEvents = 'all';
       front[i].src = item.imgSrc;
@@ -215,13 +278,14 @@ const resetGame = () => {
       back.setAttribute('aria-label', 'Flip Card');
     }, 1000);
   });
-  playerLives = 6;
+  playerLives = 9;
   displayLives.textContent = playerLives;
 };
 
+
 //generate the game
 if(gameArea){
-  cardGen();
+  cardGen(difficulty);
   //button for reset
   document.getElementById('reset').onclick = resetGame;
 };
@@ -243,18 +307,45 @@ if(intro || gameArea) {
 };
 
 //Add button sounds
-startButton.addEventListener('click', function (event) {
-  event.preventDefault(); // Stop default behavior
-  playSound(buttonSound); // Play sound effect
-  setTimeout(function() { // Wait for sound effect to finish
-    window.location.href = startButton.href; // Follow link
-  }, buttonSound.duration * 1000); // Multiply duration by 1000 to convert to milliseconds
+startButtonEasy.addEventListener('click', function(event) {
+  event.preventDefault(); // prevent default button behavior
+  playSound(buttonSound); // play sound effect
+  setTimeout(function() { // wait for sound effect to finish
+    window.location.href = startButtonEasy.href; // Follow link
+  }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
+});
+
+startButtonMedium.addEventListener('click', function(event) {
+  event.preventDefault(); // prevent default button behavior
+  playSound(buttonSound); // play sound effect
+  setTimeout(function() { // wait for sound effect to finish
+    window.location.href = startButtonMedium.href; // Follow link
+  }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
+});
+
+startButtonHard.addEventListener('click', function(event) {
+  event.preventDefault(); // prevent default button behavior
+  playSound(buttonSound); // play sound effect
+  setTimeout(function() { // wait for sound effect to finish
+    window.location.href = startButtonHard.href; // Follow link
+  }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
+});
+
+startButtonReset.addEventListener('click', function(event) {
+  event.preventDefault(); // prevent default button behavior
+  playSound(buttonSound); // play sound effect
+  setTimeout(function() { // wait for sound effect to finish
+    resetGame(storedDifficulty);
+    let url = `game.html?difficulty=${storedDifficulty}`;
+    console.log(url);
+    window.location.href = url; // Follow link
+  }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
 });
 
 endButton.addEventListener('click', function (event) {
   event.preventDefault(); // Stop default behavior
   playSound(buttonSound); // Play sound effect
   setTimeout(function() { // Wait for sound effect to finish
-    window.location.href = startButton.href; // Follow link
+    window.location.href = endButton.href; // Follow link
   }, buttonSound.duration * 1000); // Multiply duration by 1000 to convert to milliseconds
 });
