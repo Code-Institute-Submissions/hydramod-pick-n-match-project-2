@@ -620,6 +620,15 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
     .front, .back {
     border-width: 1px;
     }
+
+    .button {
+        flex-wrap: wrap;
+    }
+    
+    .button a {
+        flex: 1 0 50%;
+        margin: 5px;
+    }
 }
 
 @media screen and (min-width: 576px) {
