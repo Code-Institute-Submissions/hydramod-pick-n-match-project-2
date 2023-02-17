@@ -59,7 +59,7 @@ const startButtonHard = document.querySelector('.button-start-hard');
 const startButtonReset = document.querySelector('.button-start-reset');
 const endButton = document.querySelector('.button-end');
 
-//get difficulty level from url query
+//get difficulty level and game result from url query
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 if (!params.result) {
@@ -73,16 +73,50 @@ let difficulty = params.difficulty;
 
 //set sound effects
 let buttonSound, introSound, flipSound, matchSound, noMatchSound, gameOverSound, winSound;
-gameOverSound = new Audio('./assets/audio/game-over.mp3');
-winSound = new Audio('./assets/audio/winner.mp3');
 
 //lazy load sounds for efficiency
 const loadSounds = () => {
-  buttonSound = new Audio('./assets/audio/button.mp3');
-  introSound = new Audio('./assets/audio/Elevator-Music-(Kevin MacLeod).mp3');
-  flipSound = new Audio('./assets/audio/card-flip.mp3');
-  matchSound = new Audio('./assets/audio/match.mp3');
-  noMatchSound = new Audio('./assets/audio/nomatch.mp3');
+  buttonSound = new Audio();
+  buttonSound.addEventListener('canplaythrough', () => {
+    console.log('button sound loaded');
+  });
+  buttonSound.src = './assets/audio/button.mp3';
+
+  introSound = new Audio();
+  introSound.addEventListener('canplaythrough', () => {
+    console.log('intro sound loaded');
+  });
+  introSound.src = './assets/audio/Elevator-Music-(Kevin MacLeod).mp3';
+
+  flipSound = new Audio();
+  flipSound.addEventListener('canplaythrough', () => {
+    console.log('flip sound loaded');
+  });
+  flipSound.src = './assets/audio/card-flip.mp3';
+
+  matchSound = new Audio();
+  matchSound.addEventListener('canplaythrough', () => {
+    console.log('match sound loaded');
+  });
+  matchSound.src = './assets/audio/match.mp3';
+
+  noMatchSound = new Audio();
+  noMatchSound.addEventListener('canplaythrough', () => {
+    console.log('no match sound loaded');
+  });
+  noMatchSound.src = './assets/audio/nomatch.mp3';
+
+  gameOverSound = new Audio();
+  gameOverSound.addEventListener('canplaythrough', () => {
+    console.log('game over sound loaded');
+  });
+  gameOverSound.src = './assets/audio/game-over.mp3';
+
+  winSound = new Audio();
+  winSound.addEventListener('canplaythrough', () => {
+    console.log('win sound loaded');
+  });
+  winSound.src = './assets/audio/winner.mp3';
 };
 
 //play sound when called
@@ -282,7 +316,7 @@ const resetGame = (storedDifficulty) => {
     cardCount = 8; // set 8 card pairs for medium difficulty
     playerLives = 6;
   } else if (storedDifficulty === 'hard') {
-    cardCount = 12; // set 16 card pairs for hard difficulty
+    cardCount = 12; // set 12 card pairs for hard difficulty
     playerLives = 12;
   } else {
     // default to easy difficulty
@@ -319,10 +353,14 @@ if(gameArea){
 //set images and sound effects for game end screen
 if(result === 'lose') {
   background.style.backgroundImage = 'url("./assets/images/gameover.jpg")';
-  playSound(gameOverSound);
+  window.onload = function() {
+    playSound(gameOverSound);
+  };
 } else if (result === 'win') {
   background.style.backgroundImage = 'url("./assets/images/youwin.jpg")';
-  playSound(winSound);
+  window.onload =function() {
+    playSound(winSound);
+  };
 };
 
 //add elevator music for intro and gameplay (because i found it funny)
