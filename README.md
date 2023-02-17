@@ -82,8 +82,16 @@ Pick N Match is a fun memory game that challenges your ability to match pairs of
 
 **Game Page**
 
-The game page is a memory game that challenges the player to match pairs of animal cards. The difficulty can be adjusted to determine the number of cards on the screen, with up to 24 cards possible. At the start of each level, the cards are all face up for a few seconds, giving the player a chance to remember their location. Once the time is up, the cards are flipped back over, and the player must use their memory to match pairs by selecting two cards at a time. The player's remaining lives are displayed at the top of the screen, adding an element of risk to the game as incorrect guesses result in a loss of lives. The colorful backs of the cards and various animal images on the front make for an engaging and fun gameplay experience.
+Welcome to the memory game page! This game is designed to test and improve your memory skills by challenging you to match pairs of animal cards. The level of difficulty can be adjusted to your liking, with up to 24 cards available on the screen. At the beginning of each level, all the cards are shown face up for a few seconds, allowing you to remember their positions. Once the time is up, the cards are flipped back over, and it's up to you to match pairs by selecting two cards at a time. To add an extra layer of excitement, the game has sound effects throughout the gameplay. You will have a limited number of lives to make incorrect guesses, adding an element of risk to the game. The game features a colorful and engaging design, with various animal images on the front of the cards that make the gameplay experience fun and enjoyable.
 
 ![Pick N' Match game Page](/docs/images/game%20start.png)
 
 ![Pick N' Match game Page](/docs/images/game%20start1.png)
+
+**End Game Page**
+
+The End Game page displays different images depending on the game result - either a win screen or a game over screen. If the player wins, they will be presented with a congratulatory image and a sound of triumph will be played. If the player loses, they will see a game over image and a sound of defeat will be played. Either way, the End Game page provides a satisfying conclusion to the game and gives the option to Try Again, encouraging players to keep playing to improve their memory skills.
+
+![Pick N' Match game end page](/docs/images/win.png)
+
+![Pick N' Match game end page](/docs/images/lose.png)

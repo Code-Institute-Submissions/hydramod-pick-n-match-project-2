@@ -656,6 +656,8 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
     width: 100%;
 }
 
+/*Responsive Styling*/
+
 @media screen and (max-width: 480px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
