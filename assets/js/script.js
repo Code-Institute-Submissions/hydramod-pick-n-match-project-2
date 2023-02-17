@@ -342,7 +342,6 @@ const resetGame = (storedDifficulty) => {
   displayLives.textContent = playerLives;
 };
 
-
 //generate the game
 if(gameArea){
   cardGen(difficulty);

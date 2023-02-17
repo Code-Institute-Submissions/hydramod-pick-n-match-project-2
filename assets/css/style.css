@@ -290,6 +290,22 @@ input {
     border-radius: 50%;
 }
 
+.home-logo {
+    animation: spin 5s ease-in-out forwards;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+
 .intro-home {
     background-image: url("../images/pexels-nicola-barts-7943257-2000x1333.jpg");
     background-attachment: fixed;
