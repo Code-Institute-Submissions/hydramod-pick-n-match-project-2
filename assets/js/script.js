@@ -192,7 +192,21 @@ const cardGen = (difficulty) => {
       checkMatch(event);
     });
   });
+
+  // Flip all cards over for a short time, then flip them back
+  let cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.classList.add("flipCard");
+    card.style.pointerEvents = 'none';
+  });
+  setTimeout(() => {
+    cards.forEach((card) => {
+      card.classList.remove("flipCard");
+      card.style.pointerEvents = 'auto';
+    });
+  }, 7500); // adjust delay time
 };
+
 
 //check if cards match
 const checkMatch = (event) => {
