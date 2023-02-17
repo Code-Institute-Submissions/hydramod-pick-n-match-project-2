@@ -137,22 +137,22 @@ const cardGen = (difficulty) => {
   switch (difficulty) {
     case "easy":
       cardCount = 4;
-      gridColumns = "repeat(4, 8rem)";
+      gridColumns = "repeat(4, 1fr)";
       gridRows = "repeat(2, 8rem)";
       break;
     case "medium":
       cardCount = 8;
-      gridColumns = "repeat(4, 8rem)";
+      gridColumns = "repeat(4, 1fr)";
       gridRows = "repeat(4, 8rem)";
       break;
     case "hard":
-      cardCount = 16;
-      gridColumns = "repeat(8, 8rem)";
-      gridRows = "repeat(4, 8rem)";
+      cardCount = 12;
+      gridColumns = "repeat(4, 1fr)";
+      gridRows = "repeat(6, 11rem)";
       break;
     default:
       cardCount = 4;
-      gridColumns = "repeat(4, 8rem)";
+      gridColumns = "repeat(4, 1fr)";
       gridRows = "repeat(2, 8rem)";
   }
 
@@ -237,7 +237,7 @@ const checkMatch = (event) => {
   } else if(difficulty === 'medium' && flipCard.length === 16) {
     saveDifficulty(difficulty);
     window.location.href = 'game-end.html?result=win';
-  } else if(difficulty === 'hard' && flipCard.length === 32) {
+  } else if(difficulty === 'hard' && flipCard.length === 24) {
     saveDifficulty(difficulty);
     window.location.href = 'game-end.html?result=win';
   };
