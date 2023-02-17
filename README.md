@@ -46,3 +46,42 @@ The Footer is a feature that appears on all three pages of a website and is full
 
 ![Pick N' Match Footer](/docs/images/footer.png)
 
+- Favicon
+
+A favicon is a small icon that appears on all tabs of a website. It serves as a visual identifier and allows for easy recognition of the website when multiple tabs are open in a browser. A well-designed favicon can enhance the overall user experience and make it easier to find the desired tab among many open ones.
+
+  - Appears on all tabs site wide
+  - Allows for easy identification when multiple tabs are open
+
+![Pick N' Match Favicon](/docs/images/favicon.png)
+
+![Pick N' Match Favicon](/docs/images/favicon2.png)
+
+- 404 Page
+
+A 404 page is an error page that appears when a user tries to access a broken link or a page that doesn't exist on a website. It's a common experience for internet users and serves as a way to inform them that the requested content cannot be found. The purpose of a 404 page is to provide the user with a clear indication that the content they are seeking is unavailable and to offer them options for navigation or finding what they are looking for on the website. A well-designed 404 page can provide a better user experience and help minimize frustration for visitors who encounter this error.
+
+  - Appears when broken links are used or if a page does not exist.
+
+![Pick N' Match 404 Page](/docs/images/404%20not%20found.png)
+
+**Home Page**
+
+- Landing page image and text.
+
+Pick N Match is a fun memory game that challenges your ability to match pairs of cards. The landing page features the game's logo and an introduction to the rules, along with three buttons to select the difficulty level: easy, medium, and hard. The design is dynamic and engaging, with colorful graphics and animations that immediately draw the user's attention. The clear instructions and user-friendly layout encourage the user to start playing the game, setting the tone for an enjoyable experience on the site.
+
+  - Pick N Match is a memory game with various difficulties.
+  - The landing page features a logo, rules introduction, and 3 difficulty buttons.
+  - The game challenges players to match pairs of cards with a limited number of attempts.
+  - The game improves memory and cognitive abilities.
+
+![Pick N' Match Landing Page](/docs/images/landing%20page.png)
+
+**Game Page**
+
+The game page is a memory game that challenges the player to match pairs of animal cards. The difficulty can be adjusted to determine the number of cards on the screen, with up to 24 cards possible. At the start of each level, the cards are all face up for a few seconds, giving the player a chance to remember their location. Once the time is up, the cards are flipped back over, and the player must use their memory to match pairs by selecting two cards at a time. The player's remaining lives are displayed at the top of the screen, adding an element of risk to the game as incorrect guesses result in a loss of lives. The colorful backs of the cards and various animal images on the front make for an engaging and fun gameplay experience.
+
+![Pick N' Match game Page](/docs/images/game%20start.png)
+
+![Pick N' Match game Page](/docs/images/game%20start1.png)
