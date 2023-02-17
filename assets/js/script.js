@@ -50,6 +50,7 @@ const displayLives = document.querySelector('.lives');
 if (!displayLives) {
   console.error("Element with class 'lives' not found");
 };
+let playerLives;
 
 const background = document.querySelector('.game-end-home');
 const startButtonEasy = document.querySelector('.button-start-easy');
@@ -57,7 +58,6 @@ const startButtonMedium = document.querySelector('.button-start-medium');
 const startButtonHard = document.querySelector('.button-start-hard');
 const startButtonReset = document.querySelector('.button-start-reset');
 const endButton = document.querySelector('.button-end');
-let playerLives = 9;
 
 //get difficulty level from url query
 const urlSearchParams = new URLSearchParams(window.location.search);
@@ -132,28 +132,31 @@ const shuffle = (array) => {
 
 // Generate game according to difficulty
 const cardGen = (difficulty) => {
-  let cardCount;
-  let gridColumns;
+  let cardCount, gridColumns, gridRows;
   switch (difficulty) {
     case "easy":
       cardCount = 4;
       gridColumns = "repeat(4, 1fr)";
       gridRows = "repeat(2, 8rem)";
+      playerLives = 6;
       break;
     case "medium":
       cardCount = 8;
       gridColumns = "repeat(4, 1fr)";
       gridRows = "repeat(4, 8rem)";
+      playerLives = 6;
       break;
     case "hard":
       cardCount = 12;
       gridColumns = "repeat(6, 1fr)";
       gridRows = "repeat(4, 8rem)";
+      playerLives = 12;
       break;
     default:
       cardCount = 4;
       gridColumns = "repeat(, 1fr)";
       gridRows = "repeat(2, 8rem)";
+      playerLives = 6;
   }
 
   let cardInfo = shuffle(getImages());
@@ -163,6 +166,11 @@ const cardGen = (difficulty) => {
   // Set up grid according to game difficulty
   gameGrid.style.gridTemplateColumns = gridColumns;
   gameGrid.style.gridTemplateRows = gridRows;
+
+  // Update displayLives element with the new value
+  if(displayLives){
+    displayLives.textContent = playerLives;
+  };
 
   // Generate HTML for each card
   shuffledPairs.forEach((item) => {
@@ -269,13 +277,16 @@ const resetGame = (storedDifficulty) => {
   let cardCount;
   if (storedDifficulty === 'easy') {
     cardCount = 4; // set 6 card pairs for easy difficulty
+    playerLives = 6;
   } else if (storedDifficulty === 'medium') {
     cardCount = 8; // set 8 card pairs for medium difficulty
+    playerLives = 6;
   } else if (storedDifficulty === 'hard') {
-    cardCount = 16; // set 16 card pairs for hard difficulty
+    cardCount = 12; // set 16 card pairs for hard difficulty
+    playerLives = 12;
   } else {
     // default to easy difficulty
-    cardCount = 6;
+    cardCount = 4;
   }
 
   let cardInfo = randomize(cardCount);
@@ -294,7 +305,6 @@ const resetGame = (storedDifficulty) => {
       back.setAttribute('aria-label', 'Flip Card');
     }, 1000);
   });
-  playerLives = 9;
   displayLives.textContent = playerLives;
 };
 
@@ -366,5 +376,5 @@ if(background) {
       window.location.href = endButton.href; // Follow link
     }, buttonSound.duration * 1000); // Multiply duration by 1000 to convert to milliseconds
   });
-}
+};
 
