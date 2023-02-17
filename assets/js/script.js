@@ -147,12 +147,12 @@ const cardGen = (difficulty) => {
       break;
     case "hard":
       cardCount = 12;
-      gridColumns = "repeat(4, 1fr)";
-      gridRows = "repeat(6, 11rem)";
+      gridColumns = "repeat(6, 1fr)";
+      gridRows = "repeat(4, 8rem)";
       break;
     default:
       cardCount = 4;
-      gridColumns = "repeat(4, 1fr)";
+      gridColumns = "repeat(, 1fr)";
       gridRows = "repeat(2, 8rem)";
   }
 
