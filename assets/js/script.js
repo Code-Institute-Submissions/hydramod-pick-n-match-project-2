@@ -310,10 +310,11 @@ const resetGame = (storedDifficulty) => {
     playerLives = 6;
   } else if (storedDifficulty === 'hard') {
     cardCount = 12; // set 12 card pairs for hard difficulty
-    playerLives = 12;
+    playerLives = 4;
   } else {
     // default to easy difficulty
     cardCount = 4;
+    playerLives = 6;
   }
 
   let cardInfo = randomize(cardCount);
