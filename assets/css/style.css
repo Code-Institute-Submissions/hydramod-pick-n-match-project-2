@@ -566,16 +566,23 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
     background-image: url('../images/question.jpg');
     background-size: cover;
     backface-visibility: hidden;
+    background-repeat: no-repeat;
 }
 
 .flipCard {
     transform: rotateY(180deg);
 }
 
+.matched {
+    border: 5px solid green;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
 .game-end-home {
     background-attachment: fixed;
 }
-
+    
 /*footer styling*/
 
 .footer {

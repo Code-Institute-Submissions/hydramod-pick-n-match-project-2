@@ -92,7 +92,7 @@ const loadSound = (path, callback) => {
 };
 
 //Factory pattern to manage creation and caching of audio elements. 
-//play sound effect when called.
+//play sound effect when called
 const soundFactory = (() => {
   const sounds = {};
 
@@ -259,6 +259,7 @@ const checkMatch = (event) => {
       //remove flipped attribute so the game keeps going
       flippedCards.forEach(card => {
         card.classList.remove('flipped');
+        card.classList.add('matched');
         //make cards unclickable after a match
         card.style.pointerEvents = 'none';
       });
