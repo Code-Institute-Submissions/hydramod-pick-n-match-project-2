@@ -196,6 +196,9 @@ button:not(:disabled) {
 }
 
 .navbar-toggler {
+    position: absolute;
+    z-index: 9999;
+    right: 0;
     align-self: flex-start;
     padding: 0.25rem 0.75rem;
     font-size: 1.25rem;
@@ -282,6 +285,10 @@ input {
 
 .nav-center {
     text-align: center;
+}
+
+.nav-item {
+    list-style: none;
 }
 
 .home-logo {
