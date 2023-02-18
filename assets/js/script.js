@@ -91,7 +91,8 @@ const loadSound = (path, callback) => {
   audio.src = path;
 };
 
-//play sound when called
+//Factory pattern to manage creation and caching of audio elements. 
+//play sound effect when called.
 const soundFactory = (() => {
   const sounds = {};
 
