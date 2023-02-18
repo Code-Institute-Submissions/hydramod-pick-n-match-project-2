@@ -280,13 +280,13 @@ const checkMatch = (event) => {
     };
   };
   //check if game is won
-  if(difficulty === 'easy' && flipCard.length === 8) {
+  if(difficulty === 'easy' && flipCard.length === 12) {
     saveDifficulty(difficulty);
     window.location.href = 'game-end.html?result=win';
-  } else if(difficulty === 'medium' && flipCard.length === 16) {
+  } else if(difficulty === 'medium' && flipCard.length === 24) {
     saveDifficulty(difficulty);
     window.location.href = 'game-end.html?result=win';
-  } else if(difficulty === 'hard' && flipCard.length === 24) {
+  } else if(difficulty === 'hard' && flipCard.length === 32) {
     saveDifficulty(difficulty);
     window.location.href = 'game-end.html?result=win';
   };
