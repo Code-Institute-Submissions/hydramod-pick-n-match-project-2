@@ -71,63 +71,54 @@ if (!params.difficulty) {
 let result = params.result;
 let difficulty = params.difficulty;
 
-//set sound effects
-let buttonSound, introSound, flipSound, matchSound, noMatchSound, gameOverSound, winSound;
+//set sound effects paths
+let buttonSound = './assets/audio/button.mp3';
+let introSound = './assets/audio/Elevator-Music-(Kevin MacLeod).mp3';
+let flipSound = './assets/audio/card-flip.mp3';
+let matchSound = './assets/audio/match.mp3';
+let noMatchSound = './assets/audio/nomatch.mp3';
+let gameOverSound = './assets/audio/game-over.mp3';
+let winSound = './assets/audio/winner.mp3';
+
 
 //lazy load sounds for efficiency
-const loadSounds = () => {
-  buttonSound = new Audio();
-  buttonSound.addEventListener('canplaythrough', () => {
-    console.log('button sound loaded');
+const loadSound = (path, callback) => {
+  const audio = new Audio();
+  audio.addEventListener('canplaythrough', () => {
+    console.log(`${path} loaded`);
+    callback(audio);
   });
-  buttonSound.src = './assets/audio/button.mp3';
-
-  introSound = new Audio();
-  introSound.addEventListener('canplaythrough', () => {
-    console.log('intro sound loaded');
-  });
-  introSound.src = './assets/audio/Elevator-Music-(Kevin MacLeod).mp3';
-
-  flipSound = new Audio();
-  flipSound.addEventListener('canplaythrough', () => {
-    console.log('flip sound loaded');
-  });
-  flipSound.src = './assets/audio/card-flip.mp3';
-
-  matchSound = new Audio();
-  matchSound.addEventListener('canplaythrough', () => {
-    console.log('match sound loaded');
-  });
-  matchSound.src = './assets/audio/match.mp3';
-
-  noMatchSound = new Audio();
-  noMatchSound.addEventListener('canplaythrough', () => {
-    console.log('no match sound loaded');
-  });
-  noMatchSound.src = './assets/audio/nomatch.mp3';
-
-  gameOverSound = new Audio();
-  gameOverSound.addEventListener('canplaythrough', () => {
-    console.log('game over sound loaded');
-  });
-  gameOverSound.src = './assets/audio/game-over.mp3';
-
-  winSound = new Audio();
-  winSound.addEventListener('canplaythrough', () => {
-    console.log('win sound loaded');
-  });
-  winSound.src = './assets/audio/winner.mp3';
+  audio.src = path;
 };
 
 //play sound when called
-const playSound = (audio) => {
-  if (audio) {
-    audio.play();
-  }
-};
+const soundFactory = (() => {
+  const sounds = {};
 
-//load sound effects
-window.addEventListener('load', loadSounds);
+  const loadSound = (audioPath, callback) => {
+    const audio = new Audio(audioPath);
+    audio.addEventListener('loadeddata', () => {
+      callback(audio);
+    });
+  };
+
+  return {
+    play: (audioPath) => {
+      if (!sounds[audioPath]) {
+        loadSound(audioPath, (audio) => {
+          sounds[audioPath] = audio;
+          audio.play();
+        });
+      } else {
+        sounds[audioPath].play();
+      }
+    }
+  };
+})();
+
+const playSound = (audioPath) => {
+  soundFactory.play(audioPath);
+};
 
 // set player lives
 if(displayLives){
@@ -184,7 +175,7 @@ const cardGen = (difficulty) => {
       cardCount = 12;
       gridColumns = "repeat(6, 1fr)";
       gridRows = "repeat(4, 8rem)";
-      playerLives = 12;
+      playerLives = 4;
       break;
     default:
       cardCount = 4;
