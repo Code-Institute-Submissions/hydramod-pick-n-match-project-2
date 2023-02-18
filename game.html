@@ -37,8 +37,8 @@
                     <ul class="navbar-nav nav-dropdown nav-center">
                         <li class="nav-item"><a class="nav-link link text-white nav-text-link font-format-2"
                                 href="index.html#home">HOME</a></li>
-                        <li class="nav-item"><a class="nav-link link text-white nav-text-link font-format-2"
-                                href="" id="reset">RESET GAME</a></li>
+                        <li class="nav-item"><a class="nav-link link text-white nav-text-link font-format-2" href=""
+                                id="reset">RESET GAME</a></li>
                         <li class="nav-item"><a class="nav-link link text-white nav-text-link font-format-2"
                                 href="game-end.html?result=lose">END GAME</a></li>
                     </ul>
@@ -50,11 +50,14 @@
     <section class="game-home fullscreen" id="game">
         <div class="overlay"></div>
         <div class="container">
-            <div>
-                <h1 class="section-title align-center bottom-margin-5 font-format-3"><strong>LIVES: <span
-                    class="lives"></span></strong></h1>
-            </div>
+            <div class="game-container">
+                <div>
+                    <h1 class="section-title align-center bottom-margin-5 font-format-3"><strong>LIVES: <span
+                                class="lives"></span></strong>
+                    </h1>
+                </div>
                 <div class="game grid"></div>
+            </div>
         </div>
     </section>
 
@@ -65,17 +68,19 @@
                     <ul class="foot-menu">
                         <li class="foot-menu-item font-format-1"><a href="index.html" class="text-white">Home</a>
                         </li>
-                        <li class="foot-menu-item font-format-1"><a href=""
-                                class="text-white" id="reset">Reset Game</a></li>
-                        <li class="foot-menu-item font-format-1"><a href="game-end.html?result=lose" class="text-white">End
+                        <li class="foot-menu-item font-format-1"><a href="" class="text-white" id="reset">Reset Game</a>
+                        </li>
+                        <li class="foot-menu-item font-format-1"><a href="game-end.html?result=lose"
+                                class="text-white">End
                                 Game</a>
                         </li>
                     </ul>
                 </div>
                 <div class="container-row social-row">
-                    <div class="social-list align-right">
+                    <div class="social-list">
                         <div class="social-items">
-                            <a href="https://github.com/hydramod" target="_blank" aria-label="Opens github in a new tab">
+                            <a href="https://github.com/hydramod" target="_blank"
+                                aria-label="Opens github in a new tab">
                                 <span class="social-icons"><i class="fa-brands fa-github"></i></span>
                             </a>
                         </div>

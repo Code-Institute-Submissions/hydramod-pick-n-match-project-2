@@ -161,25 +161,25 @@ const cardGen = (difficulty) => {
   let cardCount, gridColumns, gridRows;
   switch (difficulty) {
     case "easy":
-      cardCount = 4;
-      gridColumns = "repeat(4, 1fr)";
-      gridRows = "repeat(2, 8rem)";
+      cardCount = 6;
+      gridColumns = "repeat(3, 1fr)";
+      gridRows = "repeat(4, 8rem)";
       playerLives = 6;
       break;
     case "medium":
-      cardCount = 8;
+      cardCount = 12;
       gridColumns = "repeat(4, 1fr)";
-      gridRows = "repeat(4, 8rem)";
-      playerLives = 6;
+      gridRows = "repeat(6, 8rem)";
+      playerLives = 4;
       break;
     case "hard":
-      cardCount = 12;
-      gridColumns = "repeat(6, 1fr)";
-      gridRows = "repeat(4, 8rem)";
+      cardCount = 16;
+      gridColumns = "repeat(4, 1fr)";
+      gridRows = "repeat(8, 8rem)";
       playerLives = 4;
       break;
     default:
-      cardCount = 4;
+      cardCount = 6;
       gridColumns = "repeat(, 1fr)";
       gridRows = "repeat(2, 8rem)";
       playerLives = 6;
@@ -303,17 +303,17 @@ let storedDifficulty = localStorage.getItem('difficulty');
 const resetGame = (storedDifficulty) => {
   let cardCount;
   if (storedDifficulty === 'easy') {
-    cardCount = 4; // set 6 card pairs for easy difficulty
+    cardCount = 6; // set 6 card pairs for easy difficulty
     playerLives = 6;
   } else if (storedDifficulty === 'medium') {
-    cardCount = 8; // set 8 card pairs for medium difficulty
-    playerLives = 6;
+    cardCount = 12; // set 12 card pairs for medium difficulty
+    playerLives = 4;
   } else if (storedDifficulty === 'hard') {
-    cardCount = 12; // set 12 card pairs for hard difficulty
+    cardCount = 16; // set 16 card pairs for hard difficulty
     playerLives = 4;
   } else {
     // default to easy difficulty
-    cardCount = 4;
+    cardCount = 6;
     playerLives = 6;
   }
 

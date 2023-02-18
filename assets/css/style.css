@@ -177,6 +177,11 @@ a {
     cursor: pointer;
     background-color: transparent;
     text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: red;
 }
 
 .top button.navbar-toggler {
@@ -299,19 +304,21 @@ input {
 
 .home-logo {
     animation: spin 5s ease-in-out forwards;
-  }
-  
-  @keyframes spin {
+}
+
+@keyframes spin {
     0% {
-      transform: rotateY(0deg);
+        transform: rotateY(0deg);
     }
+
     50% {
-      transform: rotateY(180deg);
+        transform: rotateY(180deg);
     }
+
     100% {
-      transform: rotateY(360deg);
+        transform: rotateY(360deg);
     }
-  }
+}
 
 .intro-home {
     background-image: url("../images/pexels-nicola-barts-7943257-2000x1333.jpg");
@@ -457,10 +464,6 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
     background-position: -10000px 1.2em;
 }
 
-.text-link {
-    color: blue !important;
-}
-
 .button {
     padding: 0.6rem 1.2rem;
     border-radius: 4px;
@@ -511,46 +514,63 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
     background-attachment: fixed;
 }
 
-.button-start-easy, button-start:active {
+.button-start-easy,
+button-start:active {
     background-color: #22aa35 !important;
     border-color: #22aa35 !important;
     color: #ffffff !important;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
 }
 
-.button-start-medium, button-start:active {
+.button-start-medium,
+button-start:active {
     background-color: #c2880c !important;
     border-color: #aa7f22 !important;
     color: #ffffff !important;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
 }
 
-.button-start-hard, button-start:active {
+.button-start-hard,
+button-start:active {
     background-color: #aa2222 !important;
     border-color: #aa2b22 !important;
     color: #ffffff !important;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
 }
 
-.button-start-reset, button-start:active {
+.button-start-reset,
+button-start:active {
     background-color: #22aa35 !important;
     border-color: #22aa35 !important;
     color: #ffffff !important;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
 }
 
-.button-end, button-start:end {
+.button-end,
+button-start:end {
     background-color: #aa2222 !important;
     border-color: #aa2b22 !important;
     color: #ffffff !important;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
 }
 
+.container {
+    margin: auto;
+}
+
+.game-container {
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    transform: scale(0.8);
+    margin: 0;
+}
+
 .grid {
-   display: grid;
-   justify-content: center;
-   grid-gap: 1rem;
-   perspective: 600px;
+    display: grid;
+    justify-content: center;
+    grid-gap: 1rem;
+    perspective: 600px;
 }
 
 .card {
@@ -560,7 +580,8 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
 }
 
-.front, .back {
+.front,
+.back {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -589,7 +610,7 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
 .game-end-home {
     background-attachment: fixed;
 }
-    
+
 /*footer styling*/
 
 .footer {
@@ -639,7 +660,7 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .footer .media-container-row .social-list .social-icons {
@@ -673,24 +694,19 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
 /*Responsive Styling*/
 
 @media screen and (max-width: 480px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(16, 5rem);
-        grid-gap: 0.5rem;
-    }
-    
     .card {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px;
     }
-    
-    .front, .back {
-    border-width: 1px;
+
+    .front,
+    .back {
+        border-width: 1px;
     }
 
     .button {
         flex-wrap: wrap;
     }
-    
+
     .button a {
         flex: 1 0 50%;
         margin: 5px;
@@ -713,7 +729,6 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
         flex: 0 0 100%;
         max-width: 100%;
     }
-
 }
 
 @media screen and (max-width: 768px) {
@@ -736,13 +751,14 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
         grid-template-rows: repeat(8, 8rem);
         grid-gap: 0.5rem;
     }
-    
+
     .card {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px;
     }
-    
-    .front, .back {
-    border-width: 1px;
+
+    .front,
+    .back {
+        border-width: 1px;
     }
 }
 
@@ -878,20 +894,21 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
         grid-template-rows: repeat(8, 8rem);
         grid-gap: 0.5rem;
     }
-    
+
     .card {
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px;
     }
-    
-    .front, .back {
-    border-width: 1px;
+
+    .front,
+    .back {
+        border-width: 1px;
     }
-    
+
 }
 
 @media screen and (min-width: 1200px) {
     .container {
         max-width: 1140px;
     }
-    
+
 }
