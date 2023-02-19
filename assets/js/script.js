@@ -422,25 +422,22 @@ if (intro) {
   startButtonEasy.addEventListener('click', function (event) {
     event.preventDefault(); // prevent default button behavior
     playSound(buttonSound); // play sound effect
-    setTimeout(function () { // wait for sound effect to finish
-      window.location.href = startButtonEasy.href; // Follow link
-    }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
+    setTimeout(function() {  // wait for sound effect to finish
+      window.location.href = startButtonEasy.href;}, 1000); // Follow link
   });
 
   startButtonMedium.addEventListener('click', function (event) {
     event.preventDefault(); // prevent default button behavior
     playSound(buttonSound); // play sound effect
-    setTimeout(function () { // wait for sound effect to finish
-      window.location.href = startButtonMedium.href; // Follow link
-    }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
+    setTimeout(function () {  // wait for sound effect to finish
+      window.location.href = startButtonMedium.href;}, 1000); // Follow link
   });
 
   startButtonHard.addEventListener('click', function (event) {
     event.preventDefault(); // prevent default button behavior
     playSound(buttonSound); // play sound effect
-    setTimeout(function () { // wait for sound effect to finish
-      window.location.href = startButtonHard.href; // Follow link
-    }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
+    setTimeout(function () {  // wait for sound effect to finish
+      window.location.href = startButtonHard.href;}, 1000); // Follow link
   });
 }
 
@@ -450,15 +447,13 @@ if (background) {
     playSound(buttonSound); // play sound effect
     setTimeout(function () { // wait for sound effect to finish
       let url = `game.html?difficulty=${storedDifficulty}`;
-      window.location.href = url; // Follow link
-    }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
+      window.location.href = url;}, 1000); // Follow link
   });
 
   endButton.addEventListener('click', function (event) {
     event.preventDefault(); // Stop default behavior
     playSound(buttonSound); // Play sound effect
     setTimeout(function () { // Wait for sound effect to finish
-      window.location.href = endButton.href; // Follow link
-    }, buttonSound.duration * 1000); // Multiply duration by 1000 to convert to milliseconds
+      window.location.href = endButton.href;}, 1000); // Follow link
   });
 }
