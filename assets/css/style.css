@@ -603,6 +603,12 @@ button-start:end {
     pointer-events: none;
 }
 
+.notmatched {
+    border: 5px solid red;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
 .game-end-home {
     background-attachment: fixed;
 }

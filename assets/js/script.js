@@ -107,7 +107,7 @@ const soundFactory = (() => {
         loadSound(audioPath, (audio) => {
           sounds[audioPath] = audio;
           try {
-            audio.play();  
+            audio.play().catch(() => {});  
           } catch (error) {
             if (error instanceof DOMException) {
               //Do nothing
@@ -241,6 +241,7 @@ const cardGen = (difficulty) => {
     card.style.pointerEvents = 'none';
   });
   setTimeout(() => {
+    playSound(flipSound);
     cards.forEach((card) => {
       card.classList.remove("flipCard");
       card.style.pointerEvents = 'auto';
@@ -274,8 +275,9 @@ const checkMatch = (event) => {
       playSound(noMatchSound);
       //remove flipped/flipCard attribute so the game keeps going
       flippedCards.forEach(card => {
+        card.classList.add('notmatched');
         card.classList.remove('flipped');
-        setTimeout(() => card.classList.remove('flipCard'), 1500);
+        setTimeout(() => card.classList.remove('flipCard', 'notmatched'), 2300);
       });
       //update player lives on screen and send to game over screen
       playerLives--;
@@ -359,7 +361,9 @@ if(result === 'lose') {
 
 //add elevator music for intro and gameplay (because i found it funny)
 if(intro || gameArea) {
-  playSound(introSound);
+  window.addEventListener('click', function () {
+    playSound(introSound);
+  });
 };
 
 //Add button sounds
