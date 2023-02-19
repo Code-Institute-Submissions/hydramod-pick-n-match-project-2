@@ -134,7 +134,7 @@ The End Game page displays different images depending on the game result - eithe
 - Source code hosted on GitHub, deployed with Git Pages
 - Git used for code management
 - Icons from Font Awesome
-- Images optimized using Tinyjpg
+- Images optimized using TinyPNG
 - Favicon files generated using Favicon.io
 - Wireframes designed using Balsamiq
 
