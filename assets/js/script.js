@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 //**navbar**//
 
 //Select the button element
@@ -37,7 +39,7 @@ for (let i = 0; i < links.length; i++) {
     };
     window.scrollTo(scrollOptions);
   });
-};
+}
 
 /**The Game**/
 
@@ -86,6 +88,7 @@ const loadSound = (path, callback) => {
 //play sound effect when called
 const soundFactory = (() => {
   const sounds = {};
+  let DOMException;
 
   const loadSound = (audioPath, callback) => {
     const audio = new Audio(audioPath);
@@ -107,7 +110,7 @@ const soundFactory = (() => {
         loadSound(audioPath, (audio) => {
           sounds[audioPath] = audio;
           try {
-            audio.play().catch(() => {});  
+            audio.play().catch(() => {});
           } catch (error) {
             if (error instanceof DOMException) {
               //Do nothing
@@ -127,28 +130,75 @@ const playSound = (audioPath) => {
 };
 
 // set player lives
-if(displayLives){
+if (displayLives) {
   displayLives.textContent = playerLives;
-};
+}
 
 // Get images and put into an array
-const getImages = () => [
-  { imgSrc: "./assets/images/butterfly.webp", name: "butterfly" },
-  { imgSrc: "./assets/images/cat.webp", name: "cat" },
-  { imgSrc: "./assets/images/dog.webp", name: "dog" },
-  { imgSrc: "./assets/images/dolphin.webp", name: "dolphin" },
-  { imgSrc: "./assets/images/eagle.webp", name: "eagle" },
-  { imgSrc: "./assets/images/elephant.webp", name: "elephant" },
-  { imgSrc: "./assets/images/fish.webp", name: "fish" },
-  { imgSrc: "./assets/images/fox.webp", name: "fox" },
-  { imgSrc: "./assets/images/frog.webp", name: "frog" },
-  { imgSrc: "./assets/images/gorilla.webp", name: "gorilla" },
-  { imgSrc: "./assets/images/lion.webp", name: "lion" },
-  { imgSrc: "./assets/images/owl.webp", name: "owl" },
-  { imgSrc: "./assets/images/ram.webp", name: "ram" },
-  { imgSrc: "./assets/images/stag.webp", name: "stag" },
-  { imgSrc: "./assets/images/tiger.webp", name: "tiger" },
-  { imgSrc: "./assets/images/wolf.webp", name: "wolf" },
+const getImages = () => [{
+    imgSrc: "./assets/images/butterfly.webp",
+    name: "butterfly"
+  },
+  {
+    imgSrc: "./assets/images/cat.webp",
+    name: "cat"
+  },
+  {
+    imgSrc: "./assets/images/dog.webp",
+    name: "dog"
+  },
+  {
+    imgSrc: "./assets/images/dolphin.webp",
+    name: "dolphin"
+  },
+  {
+    imgSrc: "./assets/images/eagle.webp",
+    name: "eagle"
+  },
+  {
+    imgSrc: "./assets/images/elephant.webp",
+    name: "elephant"
+  },
+  {
+    imgSrc: "./assets/images/fish.webp",
+    name: "fish"
+  },
+  {
+    imgSrc: "./assets/images/fox.webp",
+    name: "fox"
+  },
+  {
+    imgSrc: "./assets/images/frog.webp",
+    name: "frog"
+  },
+  {
+    imgSrc: "./assets/images/gorilla.webp",
+    name: "gorilla"
+  },
+  {
+    imgSrc: "./assets/images/lion.webp",
+    name: "lion"
+  },
+  {
+    imgSrc: "./assets/images/owl.webp",
+    name: "owl"
+  },
+  {
+    imgSrc: "./assets/images/ram.webp",
+    name: "ram"
+  },
+  {
+    imgSrc: "./assets/images/stag.webp",
+    name: "stag"
+  },
+  {
+    imgSrc: "./assets/images/tiger.webp",
+    name: "tiger"
+  },
+  {
+    imgSrc: "./assets/images/wolf.webp",
+    name: "wolf"
+  },
 ];
 
 // Shuffle the array and return only matched pairs for the game to work
@@ -199,9 +249,9 @@ const cardGen = (difficulty) => {
   gameGrid.style.gridTemplateRows = gridRows;
 
   // Update displayLives element with the new value
-  if(displayLives){
+  if (displayLives) {
     displayLives.textContent = playerLives;
-  };
+  }
 
   saveDifficulty(difficulty);
 
@@ -258,9 +308,9 @@ const checkMatch = (event) => {
   let flippedCards = document.querySelectorAll('.flipped');
   //Track flip attribute
   let flipCard = document.querySelectorAll('.flipCard');
-  
-  if(flippedCards.length === 2) {
-    if(flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
+
+  if (flippedCards.length === 2) {
+    if (flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
       playSound(matchSound);
       playerLives++;
       displayLives.textContent = playerLives;
@@ -282,19 +332,19 @@ const checkMatch = (event) => {
       //update player lives on screen and send to game over screen
       playerLives--;
       displayLives.textContent = playerLives;
-      if(playerLives === 0) {
+      if (playerLives === 0) {
         window.location.href = 'game-end.html?result=lose';
-      };
-    };
-  };
+      }
+    }
+  }
   //check if game is won
-  if(difficulty === 'easy' && flipCard.length === 12) {
+  if (difficulty === 'easy' && flipCard.length === 12) {
     window.location.href = 'game-end.html?result=win';
-  } else if(difficulty === 'medium' && flipCard.length === 24) {
+  } else if (difficulty === 'medium' && flipCard.length === 24) {
     window.location.href = 'game-end.html?result=win';
-  } else if(difficulty === 'hard' && flipCard.length === 32) {
+  } else if (difficulty === 'hard' && flipCard.length === 32) {
     window.location.href = 'game-end.html?result=win';
-  };
+  }
 };
 
 // Save difficulty level after game is played
@@ -323,7 +373,7 @@ const resetGame = (storedDifficulty) => {
 
   }
 
-  let cardInfo = randomize(cardCount);
+  let cardInfo = shuffle(cardCount);
   let front = document.querySelectorAll('.front');
   let card = document.querySelectorAll('.card');
   let back = document.createElement('div');
@@ -333,8 +383,8 @@ const resetGame = (storedDifficulty) => {
     setTimeout(() => {
       card[i].style.pointerEvents = 'all';
       front[i].src = item.imgSrc;
+      front[i].alt = item.imgSrc;
       card[i].setAttribute('name', item.name);
-      card[i].setAttribute('alt', item.name);
       back.setAttribute('alt', 'Question mark');
       back.setAttribute('aria-label', 'Flip Card');
     }, 1000);
@@ -343,72 +393,72 @@ const resetGame = (storedDifficulty) => {
 };
 
 //generate the game
-if(gameArea){
+if (gameArea) {
   cardGen(difficulty);
   //button for reset
   document.getElementById('reset').onclick = resetGame;
-};
+  document.getElementById('reset-footer').onclick = resetGame;
+}
 
 //set images and sound effects for game end screen
-if(result === 'lose') {
+if (result === 'lose') {
   background.style.backgroundImage = 'url("./assets/images/gameover.webp")';
   playSound(gameOverSound);
 
 } else if (result === 'win') {
   background.style.backgroundImage = 'url("./assets/images/youwin.webp")';
   playSound(winSound);
-};
+}
 
 //add elevator music for intro and gameplay (because i found it funny)
-if(intro || gameArea) {
+if (intro || gameArea) {
   window.addEventListener('click', function () {
     playSound(introSound);
   });
-};
+}
 
 //Add button sounds
-if(intro) {
-  startButtonEasy.addEventListener('click', function(event) {
+if (intro) {
+  startButtonEasy.addEventListener('click', function (event) {
     event.preventDefault(); // prevent default button behavior
     playSound(buttonSound); // play sound effect
-    setTimeout(function() { // wait for sound effect to finish
+    setTimeout(function () { // wait for sound effect to finish
       window.location.href = startButtonEasy.href; // Follow link
     }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
   });
 
-  startButtonMedium.addEventListener('click', function(event) {
+  startButtonMedium.addEventListener('click', function (event) {
     event.preventDefault(); // prevent default button behavior
     playSound(buttonSound); // play sound effect
-    setTimeout(function() { // wait for sound effect to finish
+    setTimeout(function () { // wait for sound effect to finish
       window.location.href = startButtonMedium.href; // Follow link
     }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
   });
-  
-  startButtonHard.addEventListener('click', function(event) {
+
+  startButtonHard.addEventListener('click', function (event) {
     event.preventDefault(); // prevent default button behavior
     playSound(buttonSound); // play sound effect
-    setTimeout(function() { // wait for sound effect to finish
+    setTimeout(function () { // wait for sound effect to finish
       window.location.href = startButtonHard.href; // Follow link
     }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
   });
 }
 
-if(background) {
-  startButtonReset.addEventListener('click', function(event) {
+if (background) {
+  startButtonReset.addEventListener('click', function (event) {
     event.preventDefault(); // prevent default button behavior
     playSound(buttonSound); // play sound effect
-    setTimeout(function() { // wait for sound effect to finish
+    setTimeout(function () { // wait for sound effect to finish
       let url = `game.html?difficulty=${storedDifficulty}`;
       window.location.href = url; // Follow link
     }, buttonSound.duration * 1000); // multiply duration by 1000 to convert to milliseconds
   });
-  
+
   endButton.addEventListener('click', function (event) {
     event.preventDefault(); // Stop default behavior
     playSound(buttonSound); // Play sound effect
-    setTimeout(function() { // Wait for sound effect to finish
+    setTimeout(function () { // Wait for sound effect to finish
       window.location.href = endButton.href; // Follow link
     }, buttonSound.duration * 1000); // Multiply duration by 1000 to convert to milliseconds
   });
-};
-
+}
