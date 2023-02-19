@@ -43,7 +43,9 @@ section {
 }
 
 img {
-    width: 100%
+    width: 100%;
+    vertical-align: middle;
+    border-style: none;
 }
 
 .top nav.navbar,
@@ -121,8 +123,9 @@ img {
     white-space: nowrap;
 }
 
-.logo {
-    width: 10%;
+img.logo {
+    width: 50px;
+    height: 50px;
 }
 
 .menu .navbar-brand,
@@ -296,13 +299,11 @@ input {
     list-style: none;
 }
 
-.home-logo {
-    width: 50%;
+img.home-logo {
+    width: 350px;
+    height: 350px;
     border: 1px solid black;
     border-radius: 50%;
-}
-
-.home-logo {
     animation: spin 5s ease-in-out forwards;
 }
 
@@ -388,11 +389,6 @@ input {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
-}
-
-img {
-    vertical-align: middle;
-    border-style: none;
 }
 
 .intro-home .section-title {
@@ -516,16 +512,16 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
 
 .button-start-easy,
 button-start:active {
-    background-color: #22aa35 !important;
-    border-color: #22aa35 !important;
+    background-color: #0b8f1d !important;
+    border-color: black !important;
     color: #ffffff !important;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
 }
 
 .button-start-medium,
 button-start:active {
-    background-color: #c2880c !important;
-    border-color: #aa7f22 !important;
+    background-color: #af7c0c !important;
+    border-color: black !important;
     color: #ffffff !important;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
 }
@@ -533,7 +529,7 @@ button-start:active {
 .button-start-hard,
 button-start:active {
     background-color: #aa2222 !important;
-    border-color: #aa2b22 !important;
+    border-color: black !important;
     color: #ffffff !important;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
 }
@@ -541,7 +537,7 @@ button-start:active {
 .button-start-reset,
 button-start:active {
     background-color: #22aa35 !important;
-    border-color: #22aa35 !important;
+    border-color: black !important;
     color: #ffffff !important;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
 }
@@ -549,7 +545,7 @@ button-start:active {
 .button-end,
 button-start:end {
     background-color: #aa2222 !important;
-    border-color: #aa2b22 !important;
+    border-color: black !important;
     color: #ffffff !important;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
 }

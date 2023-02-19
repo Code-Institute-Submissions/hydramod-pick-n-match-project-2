@@ -47,9 +47,6 @@ const gameArea = document.querySelector('.game');
 const gameGrid = document.querySelector('.grid');
 
 const displayLives = document.querySelector('.lives');
-if (!displayLives) {
-  console.error("Element with class 'lives' not found");
-};
 let playerLives;
 
 const background = document.querySelector('.game-end-home');
@@ -62,12 +59,6 @@ const endButton = document.querySelector('.button-end');
 //get difficulty level and game result from url query
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
-if (!params.result) {
-  console.error("Result parameter not found");
-}
-if (!params.difficulty) {
-  console.error("Difficulty parameter not found");
-}
 let result = params.result;
 let difficulty = params.difficulty;
 
@@ -198,6 +189,8 @@ const cardGen = (difficulty) => {
     displayLives.textContent = playerLives;
   };
 
+  saveDifficulty(difficulty);
+
   // Generate HTML for each card
   shuffledPairs.forEach((item) => {
     let card = document.createElement("div");
@@ -274,20 +267,16 @@ const checkMatch = (event) => {
       playerLives--;
       displayLives.textContent = playerLives;
       if(playerLives === 0) {
-        saveDifficulty(difficulty);
         window.location.href = 'game-end.html?result=lose';
       };
     };
   };
   //check if game is won
   if(difficulty === 'easy' && flipCard.length === 12) {
-    saveDifficulty(difficulty);
     window.location.href = 'game-end.html?result=win';
   } else if(difficulty === 'medium' && flipCard.length === 24) {
-    saveDifficulty(difficulty);
     window.location.href = 'game-end.html?result=win';
   } else if(difficulty === 'hard' && flipCard.length === 32) {
-    saveDifficulty(difficulty);
     window.location.href = 'game-end.html?result=win';
   };
 };
@@ -315,6 +304,7 @@ const resetGame = (storedDifficulty) => {
     // default to easy difficulty
     cardCount = 6;
     playerLives = 6;
+
   }
 
   let cardInfo = randomize(cardCount);
