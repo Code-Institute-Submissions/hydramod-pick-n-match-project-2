@@ -6,7 +6,7 @@ Welcome to "Pick N Match"! This memory matching game is designed to test and imp
 
 To further enhance your gaming experience, "Pick N Match" features an excellent soundtrack. With just one tune, this great feature is sure to add to your enjoyment. So challenge your memory skills, have fun, and enjoy the game! Let's see how good your memory really is!
 
-![Pick N' Match Webpage](/docs/images/intro.png)
+![Pick N' Match Webpage](/docs/images/intro.webp)
 
 # Features
 
@@ -26,7 +26,9 @@ The Navigation Bar is a prominent feature on all three pages of a website. It is
   - Fixed at the top of the page
   - Allows for seamless navigation across all devices without using the back button
 
-  ![Pick N' Match Nav Bar](/docs/images/navbar.png)
+   ![Pick N' Match Nav Bar](/docs/images/navbar%20collapse.webp)
+  
+  ![Pick N' Match Nav Bar](/docs/images/navbar.webp)
 
   - Footer
 
@@ -46,7 +48,7 @@ The Footer is a feature that appears on all three pages of a website and is full
     - Appears when scroll to the bottom of any page
     - Allows for seamless navigation across all devices without using the back button
 
-![Pick N' Match Footer](/docs/images/footer.png)
+![Pick N' Match Footer](/docs/images/footer.webp)
 
 - Favicon
 
@@ -55,9 +57,9 @@ A favicon is a small icon that appears on all tabs of a website. It serves as a 
   - Appears on all tabs site wide
   - Allows for easy identification when multiple tabs are open
 
-![Pick N' Match Favicon](/docs/images/favicon.png)
+![Pick N' Match Favicon](/docs/images/favicon.webp)
 
-![Pick N' Match Favicon](/docs/images/favicon2.png)
+![Pick N' Match Favicon](/docs/images/favicon2.webp)
 
 - 404 Page
 
@@ -65,7 +67,7 @@ A 404 page is an error page that appears when a user tries to access a broken li
 
   - Appears when broken links are used or if a page does not exist.
 
-![Pick N' Match 404 Page](/docs/images/404%20not%20found.png)
+![Pick N' Match 404 Page](/docs/images/404%20not%20found.webp)
 
 **Home Page**
 
@@ -78,7 +80,7 @@ Pick N Match is a fun memory game that challenges your ability to match pairs of
   - The game challenges players to match pairs of cards with a limited number of attempts.
   - The game improves memory and cognitive abilities.
 
-![Pick N' Match Landing Page](/docs/images/landing%20page.png)
+![Pick N' Match Landing Page](/docs/images/landing%20page.webp)
 
 **Game Page**
 
@@ -86,36 +88,36 @@ Welcome to the Memory Game page! This game is designed to challenge and enhance 
 
 - Easy Difficulty
 
-![Pick N' Match game Page](/docs/images/game%20easy%201.png)
+![Pick N' Match game Page](/docs/images/game%20easy%201.webp)
 
-![Pick N' Match game Page](/docs/images/game%20easy%202.png)
+![Pick N' Match game Page](/docs/images/game%20easy%202.webp)
 
 - Medium Difficulty
 
-![Pick N' Match game Page](/docs/images/game%20medium%201.png)
+![Pick N' Match game Page](/docs/images/game%20medium%201.webp)
 
-![Pick N' Match game Page](/docs/images/game%20medium%202.png)
+![Pick N' Match game Page](/docs/images/game%20medium%202.webp)
 
 - Hard Difficulty
 
-![Pick N' Match game Page](/docs/images/game%20hard%201.png)
+![Pick N' Match game Page](/docs/images/game%20hard%201.webp)
 
-![Pick N' Match game Page](/docs/images/game%20hard%202.png)
+![Pick N' Match game Page](/docs/images/game%20hard%202.webp)
 
 **End Game Page**
 
 The End Game page displays different images depending on the game result - either a win screen or a game over screen. If the player wins, they will be presented with a congratulatory image and a sound of triumph will be played. If the player loses, they will see a game over image and a sound of defeat will be played. Either way, the End Game page provides a satisfying conclusion to the game and gives the option to Try Again, encouraging players to keep playing to improve their memory skills.
 
-![Pick N' Match game end page](/docs/images/win.png)
+![Pick N' Match game end page](/docs/images/win.webp)
 
-![Pick N' Match game end page](/docs/images/lose.png)
+![Pick N' Match game end page](/docs/images/lose.webp)
 
 
 # Design
 
 **Wireframes**
 
-![Pick N' Match Wireframes](/docs/images/wireframes.png)
+![Pick N' Match Wireframes](/docs/images/wireframes.webp)
 
 # Technologies
 
@@ -158,19 +160,19 @@ The website was tested using the [Wave Accessability Toolt](https://wave.webaim.
 
 Home Page
 
-![Pick N' Match Wave Test Home](/docs/images/wave%20home.png)
+![Pick N' Match Wave Test Home](/docs/images/wave%20home.webp)
 
 Game Page
 
-![Pick N' Match Wave Test Game](/docs/images/wave%20game.png)
+![Pick N' Match Wave Test Game](/docs/images/wave%20game.webp)
 
 End Game
 
-![Pick N' Match Wave Test End Game](/docs/images/wave%20game%20end.png)
+![Pick N' Match Wave Test End Game](/docs/images/wave%20game%20end.webp)
 
 404 Page
 
-![Pick N' Match Wave Test 404](/docs/images/wave%20404.png)
+![Pick N' Match Wave Test 404](/docs/images/wave%20404.webp)
 
 **Lighthouse Test**
 
@@ -178,23 +180,23 @@ Overall the website performed very well in lighthouse tests.
 
 Home Page/Landing Page
 
-![Pick N' Match Lighthouse Test Home](/docs/images/lighthouse%20home.png)
+![Pick N' Match Lighthouse Test Home](/docs/images/lighthouse%20home.webp)
 
 Game Page
 
-![Pick N' Match Lighthouse Test Game Easy](/docs/images/lighthouse%20game%20easy.png)
+![Pick N' Match Lighthouse Test Game Easy](/docs/images/lighthouse%20game%20easy.webp)
 
-![Pick N' Match Lighthouse Test Game Medium](/docs/images/lighthouse%20game%20medium.png)
+![Pick N' Match Lighthouse Test Game Medium](/docs/images/lighthouse%20game%20medium.webp)
 
-![Pick N' Match Lighthouse Test Game Hard](/docs/images/lighthouse%20game%20hard.png)
+![Pick N' Match Lighthouse Test Game Hard](/docs/images/lighthouse%20game%20hard.webp)
 
 End Game Page (Win/Lose)
 
-![Pick N' Match Lighthouse Test End Game](/docs/images/lighthouse%20lose.png)
+![Pick N' Match Lighthouse Test End Game](/docs/images/lighthouse%20lose.webp)
 
 404 Page
 
-![Pick N' Match Lighthouse Test 404](/docs/images/lighthouse%20404.png)
+![Pick N' Match Lighthouse Test 404](/docs/images/lighthouse%20404.webp)
 
 **Weblink Test**
 
@@ -202,19 +204,19 @@ Testing was done to make sure that all the navigation links on the website were 
 
 Home Page
 
-![Pick N' Match Link Test Home](/docs/images/link%20test%20home.png)
+![Pick N' Match Link Test Home](/docs/images/link%20test%20home.webp)
 
 Game Page
 
-![Pick N' Match Link Test Game](/docs/images/link%20test%20game.png)
+![Pick N' Match Link Test Game](/docs/images/link%20test%20game.webp)
 
 End Game Page
 
-![Pick N' Match Link Test Home](/docs/images/link%20test%20game%20end.png)
+![Pick N' Match Link Test Home](/docs/images/link%20test%20game%20end.webp)
 
 404 Page
 
-![Pick N' Match Link Test Home](/docs/images/link%20test%20404.png)
+![Pick N' Match Link Test Home](/docs/images/link%20test%20404.webp)
 
 **Validator Tests**
 
@@ -222,21 +224,21 @@ End Game Page
 
 All pages pass validation however they do flag one warning due to the aria-label for navigation toggle, False warning.
 
-![Picnk N' Match HTML Validation](/docs/images/html%20validation.png)
+![Picnk N' Match HTML Validation](/docs/images/html%20validation.webp)
 
 - CSS
 
 No CSS errors
 
-![Pick N' Match CSS Validation](/docs/images/css%20validation.png)
+![Pick N' Match CSS Validation](/docs/images/css%20validation.webp)
 
 No critical Javascript errors
 
-![Pick N' Match JS Validation](/docs/images/jshint%20validation.png)
+![Pick N' Match JS Validation](/docs/images/jshint%20validation.webp)
 
 # Deployment
 
-The website was built using Visual Studio code and the code was stored on a remote repository on GitHub called "link-autos-ireland-project-1". To make sure the code was properly stored, git commands were used: "git add" was used to add the files to be committed, "git commit" was used to commit the changes to the local repository, and "git push" was used to push the committed code to the remote repository on GitHub. The website was then deployed to GitHub Pages by navigating to the repository's settings, selecting the "Pages" option, choosing the "main" branch as the source, and clicking "Save". The live link to the site can be found at https://hydramod.github.io/pick-n-match-project-2/. To use the code locally, one can clone the repository from GitHub by copying the HTTPS link, opening an IDE with git installed, and typing "git clone [copied link]" into the terminal.
+The website was built using Visual Studio code and the code was stored on a remote repository on GitHub called "pick-n-match-project-2". To make sure the code was properly stored, git commands were used: "git add" was used to add the files to be committed, "git commit" was used to commit the changes to the local repository, and "git push" was used to push the committed code to the remote repository on GitHub. The website was then deployed to GitHub Pages by navigating to the repository's settings, selecting the "Pages" option, choosing the "main" branch as the source, and clicking "Save". The live link to the site can be found at https://hydramod.github.io/pick-n-match-project-2/. To use the code locally, one can clone the repository from GitHub by copying the HTTPS link, opening an IDE with git installed, and typing "git clone [copied link]" into the terminal.
 
 # Credits
 
