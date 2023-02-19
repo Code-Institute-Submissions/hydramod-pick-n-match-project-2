@@ -69,6 +69,12 @@ A 404 page is an error page that appears when a user tries to access a broken li
 
 ![Pick N' Match 404 Page](/docs/images/404%20not%20found.webp)
 
+- Audio
+
+Get ready for an immersive and engaging gaming experience! We've added sound effects for every aspect of the game, from button clicks to the in-game soundtrack. Interacting with cards triggers a satisfying flip sound, while buttons produce playful beeps. And it's not just the actions - correct and incorrect guesses each have their unique sounds, and you'll feel the rush of excitement with a winning sound effect.
+
+But it doesn't stop there - there's also elevator music included that you can activate by clicking anywhere on the homepage. This music plays during gameplay too, providing a relaxing background that helps you focus. Get ready for a game that challenges your skills and entertains with its fantastic sounds and music!
+
 **Home Page**
 
 - Landing page image and text.
