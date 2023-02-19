@@ -90,7 +90,14 @@ const soundFactory = (() => {
   const loadSound = (audioPath, callback) => {
     const audio = new Audio(audioPath);
     audio.addEventListener('loadeddata', () => {
-      callback(audio);
+      try {
+        callback(audio);
+      } catch (error) {
+        if (error instanceof DOMException) {
+          //Do Nothing
+        }
+        //Do Nothing
+      }
     });
   };
 
@@ -99,7 +106,14 @@ const soundFactory = (() => {
       if (!sounds[audioPath]) {
         loadSound(audioPath, (audio) => {
           sounds[audioPath] = audio;
-          audio.play();
+          try {
+            audio.play();  
+          } catch (error) {
+            if (error instanceof DOMException) {
+              //Do nothing
+            }
+            //Do nothing
+          }
         });
       } else {
         sounds[audioPath].play();
@@ -202,10 +216,10 @@ const cardGen = (difficulty) => {
 
     // Add image source and animal name
     front.src = item.imgSrc;
+    front.alt = item.name;
     card.setAttribute("name", item.name);
-    card.setAttribute("alt", item.name);
     back.setAttribute("alt", "Question mark");
-    back.setAttribute("aria-label", "Flip Card");
+    back.setAttribute("title", "Flip Card");
 
     // Display card on screen
     gameArea.appendChild(card);
@@ -336,21 +350,16 @@ if(gameArea){
 //set images and sound effects for game end screen
 if(result === 'lose') {
   background.style.backgroundImage = 'url("./assets/images/gameover.webp")';
-  window.onload = function() {
-    playSound(gameOverSound);
-  };
+  playSound(gameOverSound);
+
 } else if (result === 'win') {
   background.style.backgroundImage = 'url("./assets/images/youwin.webp")';
-  window.onload =function() {
-    playSound(winSound);
-  };
+  playSound(winSound);
 };
 
 //add elevator music for intro and gameplay (because i found it funny)
 if(intro || gameArea) {
-  window.addEventListener('click', function () {
-    playSound(introSound);
-  });
+  playSound(introSound);
 };
 
 //Add button sounds
