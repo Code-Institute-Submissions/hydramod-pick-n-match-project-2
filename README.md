@@ -190,11 +190,11 @@ Game Page
 
 End Game Page (Win/Lose)
 
-![Pick N' Match Lighthouse Test End Game](/docs/images/lighthouse%20lose.png)image.png
+![Pick N' Match Lighthouse Test End Game](/docs/images/lighthouse%20lose.png)
 
 404 Page
 
-![Pick N' Match Lighthouse Test 404](/docs/images/lighthouse%20404.png)image.png
+![Pick N' Match Lighthouse Test 404](/docs/images/lighthouse%20404.png)
 
 **Weblink Test**
 
