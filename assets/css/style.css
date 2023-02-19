@@ -409,14 +409,6 @@ p {
     margin-top: 1rem !important;
 }
 
-a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-caption) {
-    position: relative;
-    background-size: 10000px 2px;
-    background-repeat: no-repeat;
-    background-position: 0px 1.2em;
-    background-position: -10000px 1.2em;
-}
-
 .button {
     padding: 0.6rem 1.2rem;
     border-radius: 4px;
