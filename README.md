@@ -95,3 +95,23 @@ The End Game page displays different images depending on the game result - eithe
 ![Pick N' Match game end page](/docs/images/win.png)
 
 ![Pick N' Match game end page](/docs/images/lose.png)
+
+
+# Design
+
+**Wireframes**
+
+![Pick N' Match game end page](/docs/images/wireframes.png)
+
+# Technologies
+
+- HTML used for website structure
+- CSS for custom styling
+- Javascript for functionality and game logic
+- Developed using Visual Studio Code IDE
+- Source code hosted on GitHub, deployed with Git Pages
+- Git used for code management
+- Icons from Font Awesome
+- Images optimized using Tinyjpg
+- Favicon files generated using Favicon.io
+- Wireframes designed using Balsamiq
