@@ -322,7 +322,7 @@ img.home-logo {
 }
 
 .intro-home {
-    background-image: url("../images/pexels-nicola-barts-7943257-2000x1333.jpg");
+    background-image: url("../images/pexels-nicola-barts-7943257-2000x1333.webp");
     background-attachment: fixed;
 }
 
@@ -506,7 +506,7 @@ a[class*="text-"]:not(.nav-link):not(.dropdown-item):not([role]):not(.navbar-cap
 /*Game styling*/
 
 .game-home {
-    background-image: url("../images/pexels-nicola-barts-7943490-2000x1333.jpg");
+    background-image: url("../images/pexels-nicola-barts-7943490-2000x1333.webp");
     background-attachment: fixed;
 }
 
@@ -587,7 +587,7 @@ button-start:end {
 }
 
 .back {
-    background-image: url('../images/question.jpg');
+    background-image: url('../images/question.webp');
     background-size: cover;
     backface-visibility: hidden;
     background-repeat: no-repeat;

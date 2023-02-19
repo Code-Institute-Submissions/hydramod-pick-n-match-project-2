@@ -119,22 +119,22 @@ if(displayLives){
 
 // Get images and put into an array
 const getImages = () => [
-  { imgSrc: "./assets/images/butterfly.jpg", name: "butterfly" },
-  { imgSrc: "./assets/images/cat.jpg", name: "cat" },
-  { imgSrc: "./assets/images/dog.jpg", name: "dog" },
-  { imgSrc: "./assets/images/dolphin.jpg", name: "dolphin" },
-  { imgSrc: "./assets/images/eagle.jpg", name: "eagle" },
-  { imgSrc: "./assets/images/elephant.jpg", name: "elephant" },
-  { imgSrc: "./assets/images/fish.jpg", name: "fish" },
-  { imgSrc: "./assets/images/fox.jpg", name: "fox" },
-  { imgSrc: "./assets/images/frog.jpg", name: "frog" },
-  { imgSrc: "./assets/images/gorilla.jpg", name: "gorilla" },
-  { imgSrc: "./assets/images/lion.jpg", name: "lion" },
-  { imgSrc: "./assets/images/owl.jpg", name: "owl" },
-  { imgSrc: "./assets/images/ram.jpg", name: "ram" },
-  { imgSrc: "./assets/images/stag.jpg", name: "stag" },
-  { imgSrc: "./assets/images/tiger.jpg", name: "tiger" },
-  { imgSrc: "./assets/images/wolf.jpg", name: "wolf" },
+  { imgSrc: "./assets/images/butterfly.webp", name: "butterfly" },
+  { imgSrc: "./assets/images/cat.webp", name: "cat" },
+  { imgSrc: "./assets/images/dog.webp", name: "dog" },
+  { imgSrc: "./assets/images/dolphin.webp", name: "dolphin" },
+  { imgSrc: "./assets/images/eagle.webp", name: "eagle" },
+  { imgSrc: "./assets/images/elephant.webp", name: "elephant" },
+  { imgSrc: "./assets/images/fish.webp", name: "fish" },
+  { imgSrc: "./assets/images/fox.webp", name: "fox" },
+  { imgSrc: "./assets/images/frog.webp", name: "frog" },
+  { imgSrc: "./assets/images/gorilla.webp", name: "gorilla" },
+  { imgSrc: "./assets/images/lion.webp", name: "lion" },
+  { imgSrc: "./assets/images/owl.webp", name: "owl" },
+  { imgSrc: "./assets/images/ram.webp", name: "ram" },
+  { imgSrc: "./assets/images/stag.webp", name: "stag" },
+  { imgSrc: "./assets/images/tiger.webp", name: "tiger" },
+  { imgSrc: "./assets/images/wolf.webp", name: "wolf" },
 ];
 
 // Shuffle the array and return only matched pairs for the game to work
@@ -335,12 +335,12 @@ if(gameArea){
 
 //set images and sound effects for game end screen
 if(result === 'lose') {
-  background.style.backgroundImage = 'url("./assets/images/gameover.jpg")';
+  background.style.backgroundImage = 'url("./assets/images/gameover.webp")';
   window.onload = function() {
     playSound(gameOverSound);
   };
 } else if (result === 'win') {
-  background.style.backgroundImage = 'url("./assets/images/youwin.jpg")';
+  background.style.backgroundImage = 'url("./assets/images/youwin.webp")';
   window.onload =function() {
     playSound(winSound);
   };
