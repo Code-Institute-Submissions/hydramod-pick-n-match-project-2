@@ -248,6 +248,7 @@ The website was built using Visual Studio code and the code was stored on a remo
 
 # Credits
 
+- Got inspiration for good documentation techniques from [Poke Fun project](https://github.com/Gareth-McGirr/Portfolio-Project-2-Poker-Fun) by Gareth McGirr.
 - Got Inspiration for this project from youtube programmer [@developedbyed](https://www.youtube.com/watch?v=-tlb4tv4mC4&t=1s)
 - Audio found from free sources on youtube
 - Images used from free sources on [pixabay](https://pixabay.com)
