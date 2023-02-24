@@ -242,6 +242,33 @@ No critical Javascript errors
 
 ![Pick N' Match JS Validation](/docs/images/jshint%20validation.webp)
 
+**Gameplay Tests**
+
+The testing process involved manual testing of all difficulty levels on both desktop and mobile devices. Sound effects were tested and found to play correctly when buttons were clicked and matches were made, while visual effects like animations, match indicators, and life indicators all worked as expected. The reset button was also tested and found to reset the game according to the selected difficulty level. Finally, win/lose conditions were triggered as expected across all difficulty levels, ensuring that the game functions properly and reliably.
+
+Initial start
+
+![Pick N' Match JS Validation](/docs/images/Manual-test.webp)
+
+All cards flip over
+
+![Pick N' Match JS Validation](/docs/images/Manual-testa.webp)
+
+Match indicator (Green Border)
+
+![Pick N' Match JS Validation](/docs/images/Manual-test-match.webp)
+
+Match indicator (Red Border)
+
+![Pick N' Match JS Validation](/docs/images/Manual-test-nomatch.webp)
+
+End Game Page (Win/Lose)
+
+![Pick N' Match Lighthouse Test End Game](/docs/images/win.webp)
+
+![Pick N' Match Lighthouse Test End Game](/docs/images/lose.webp)
+
+
 # Deployment
 
 The website was built using Visual Studio code and the code was stored on a remote repository on GitHub called "pick-n-match-project-2". To make sure the code was properly stored, git commands were used: "git add" was used to add the files to be committed, "git commit" was used to commit the changes to the local repository, and "git push" was used to push the committed code to the remote repository on GitHub. The website was then deployed to GitHub Pages by navigating to the repository's settings, selecting the "Pages" option, choosing the "main" branch as the source, and clicking "Save". The live link to the site can be found at https://hydramod.github.io/pick-n-match-project-2/. To use the code locally, one can clone the repository from GitHub by copying the HTTPS link, opening an IDE with git installed, and typing "git clone [copied link]" into the terminal.
